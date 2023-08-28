@@ -25,4 +25,4 @@ dLongA          178.0           # Longitude of the Ascending node (degrees)
 dLongP          270.0           # Longitude of the Periapse (degrees)
 
 #Output
-saOutputOrder Time -RotPer LongP SemimajorAxis Eccentricity -SurfEnFluxTot
+saOutputOrder Time -RotPer LongP SemimajorAxis Eccentricity Inc LongA -SurfEnFluxTot
