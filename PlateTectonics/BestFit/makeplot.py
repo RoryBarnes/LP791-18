@@ -1,4 +1,4 @@
-import pathlib
+#import pathlib
 import sys
 
 import matplotlib as mpl
@@ -7,24 +7,24 @@ import numpy as np
 import vplot
 
 import vplanet
-
 # Path hacks
-path = pathlib.Path(__file__).parents[0].absolute()
-sys.path.insert(1, str(path.parents[0]))
-from get_args import get_args
-
+#path = pathlib.Path(__file__).parents[0].absolute()
+import os
+path = os.getcwd()
+#sys.path.insert(1, str(path.parents[0]))
+#from get_args import get_args
 # Tweaks
 plt.rcParams.update({"font.size": 16, "legend.fontsize": 16})
-
 #
 s_yr = 3600.0 * 24 * 365
 filepref = "TidalEarth"
 
 # Run vplanet
-out0 = vplanet.run(path / "au0.01" / "vpl.in", units=False)
-out1 = vplanet.run(path / "au0.02" / "vpl.in", units=False)
-out2 = vplanet.run(path / "au0.05" / "vpl.in", units=False)
-
+#out0 = vplanet.run(path / "au0.01" / "vpl.in", units=False)
+#out1 = vplanet.run(path / "au0.02" / "vpl.in", units=False)
+#out2 = vplanet.run(path / "au0.05" / "vpl.in", units=False)
+#out0 = vplanet.run(path / "vpl.in", units=False)
+out0 = vplanet.run(path+"/vpl.in", units=False)
 
 def fig2x3(out, nfig, color="k", legendon=False):
     fig = plt.figure(nfig, figsize=(10, 15))
@@ -123,7 +123,7 @@ def fig2x3(out, nfig, color="k", legendon=False):
     plt.plot(
         out.tidalearth.Time, out.tidalearth.RIC / 3481, color=color, linestyle="--"
     )
-    plt.ylim(0, 1.5)
+    plt.ylim(0, out.tidalearth.MagMom.max())
     plt.ylabel("Mag. Mom., R$_{ic}$ ($\oplus$ Units)")
     plt.xlabel("Time (Gyr)")
     plt.xscale("log")
@@ -137,8 +137,10 @@ def fig2x3(out, nfig, color="k", legendon=False):
     plt.xscale("log")
 
     # Save
-    ext = get_args().ext
-    fig.savefig(path / f"{filepref}{nfig}.{ext}")
+    #ext = get_args().ext
+    ext = 'png'
+    #fig.savefig(path / f"{filepref}{nfig}.{ext}")
+    fig.savefig(path+'/'+f"{filepref}{nfig}.{ext}")
 
 
 # Plots
@@ -148,9 +150,10 @@ cols = 2
 # Mantle Figure
 nfig = 1
 colors = ["red", "black", "blue"]
-fig = fig2x3(out1, nfig, colors[1], legendon=True)
-fig = fig2x3(out0, nfig, colors[0], legendon=False)
-fig = fig2x3(out2, nfig, colors[2], legendon=False)
+#fig = fig2x3(out1, nfig, colors[1], legendon=True)
+#fig = fig2x3(out0, nfig, colors[0], legendon=False)
+#fig = fig2x3(out2, nfig, colors[2], legendon=False)
+fig = fig2x3(out0, nfig, colors[0], legendon=True)
 
 # Temperature-dep Orbital evo
 nfig += 1
@@ -162,40 +165,49 @@ plt.semilogy(
     planet.TUMan,
     planet.PowerEqtide,
     color=colors[0],
-    label="$a_0$=%.2f" % planet.SemiMajorAxis[0],
+    label="PowerEqtide",
 )
-planet = out1.tidalearth
 plt.semilogy(
     planet.TUMan,
-    planet.PowerEqtide,
+    planet.HflowUMan,
     color=colors[1],
-    label="$a_0$=%.2f" % planet.SemiMajorAxis[0],
+    label="HflowUMan",
 )
-planet = out2.tidalearth
-plt.semilogy(
-    planet.TUMan,
-    planet.PowerEqtide,
-    color=colors[2],
-    label="$a_0$=%.2f" % planet.SemiMajorAxis[0],
-)
-plt.ylabel(r"Tidal Power [TW]")
+#planet = out1.tidalearth
+#plt.semilogy(
+#    planet.TUMan,
+#    planet.PowerEqtide,
+#    color=colors[1],
+#    label="$a_0$=%.2f" % planet.SemiMajorAxis[0],
+#)
+#planet = out2.tidalearth
+#plt.semilogy(
+#    planet.TUMan,
+#    planet.PowerEqtide,
+#    color=colors[2],
+#    label="$a_0$=%.2f" % planet.SemiMajorAxis[0],
+#)
+plt.ylabel(r"Heat Flow [TW]")
 plt.xlabel("Upper Mantle Temp. [K]")
-plt.ylim(1e-8, 1e4)
-plt.xlim(1600, 2400)
+#plt.ylim(1e-8, 1e4)
+#plt.xlim(1600, 2400)
 plt.legend()
 panel += 1
 plt.subplot(rows, cols, panel)
 planet = out0.tidalearth
 plt.semilogy(planet.TUMan, planet.Eccentricity, color=colors[0], label="Ecc")
-planet = out1.tidalearth
-plt.semilogy(planet.TUMan, planet.Eccentricity, color=colors[1], label="Ecc")
-planet = out2.tidalearth
-plt.semilogy(planet.TUMan, planet.Eccentricity, color=colors[2], label="Ecc")
+#planet = out1.tidalearth
+#plt.semilogy(planet.TUMan, planet.Eccentricity, color=colors[1], label="Ecc")
+#planet = out2.tidalearth
+#plt.semilogy(planet.TUMan, planet.Eccentricity, color=colors[2], label="Ecc")
 plt.ylabel(r"Eccentricity")
 plt.xlabel("Upper Mantle Temp. [K]")
 plt.ylim(1e-8, 1e0)
 plt.xlim(1600, 2400)
 
 # Save
-ext = get_args().ext
-fig.savefig(path / f"{filepref}{nfig}.{ext}", bbox_inches="tight", dpi=600)
+#ext = get_args().ext
+ext = 'png'
+fig.savefig(path+'/'+f"{filepref}{nfig}.{ext}", bbox_inches="tight", dpi=600)
+
+

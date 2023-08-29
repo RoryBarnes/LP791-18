@@ -3,11 +3,11 @@ sName		tidalearth			# Body's name
 saModules 	radheat thermint eqtide
 
 # Physical Properties
-dMass		     -1.0  			# Mass, negative -> Earth masses
-dRadius		   -1.0  			# Radius, negative -> Earth radii
+dMass		     -0.9  			# Mass, negative -> Earth masses
+dRadius		   -1.032  			# Radius, negative -> Earth radii
 # Orbital Properties
-dEcc         0.5		# Eccentricity
-dSemi       -1e-2 		# Semi-major axis, negative -> AU
+dEcc         0.0015		# Eccentricity
+dSemi       -0.0199 		# Semi-major axis, negative -> AU
 
 # EQTIDE Parameters
 bForceEqSpin  1
@@ -17,7 +17,7 @@ dTidalQ      100     #
 dK2          0.299   # Love number of degree 2 (Yoder 1995)
 saTidePerts  sun    # Names of perturbing bodies (only central body may have >1)
 sTideModel   DB15
-bFixOrbit    0
+bFixOrbit    1
 #bTideLock   1
 
 # RADHEAT Parameters
@@ -35,7 +35,7 @@ d235UPowerMan     -1
 d235UPowerCore	  -1
 d235UPowerCrust	  -1
 ### 238U
-d238UPowerMan	    -1
+d238UPowerMan	  -1
 d238UPowerCore	  -1
 d238UPowerCrust	  -1
 
@@ -46,8 +46,10 @@ dEruptEff        0.2
 dViscJumpMan     2.0
 dTrefLind       5600
 dImK2ManOrbModel   2
-dShModRef        1e5 #1e6
-dStiffness       1.71e13  #3e13
+dShModRef        14770 #1e5 #1e6
+dStiffness      250e9 # 1.71e13  #3e13
+dActViscMan   2.4e5
+dViscRef    6e5
 
 saOutputOrder -Time -TMan -TUMan -TLMan -TCMB -TCore $
     -HflowUMan -HflowMeltMan -RadPowerMan -RadPowerCore -RadPowerCrust $

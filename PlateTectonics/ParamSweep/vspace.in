@@ -1,5 +1,8 @@
-sSrcFolder  ../EarthInterior
-sDestFolder ParameterSweep
+#sSrcFolder  ../EarthInterior
+#sDestFolder ParameterSweep
+sSrcFolder  .
+sDestFolder .
+
 sTrialName test_
 
 sBodyFile   sun.in
