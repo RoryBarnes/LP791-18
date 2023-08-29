@@ -30,37 +30,45 @@ astropy
 
 1. Go to https://github.com/RoryBarnes/LP791-18
 
+![Alt text](images/step1.png)
+
 2. Fork the most recent version of the code (make sure to unselect copy on main branch)
 
-3. On your local machine in a desired directory, clone the repo 
+![Alt text](images/step2.png)
+
+3. On your local machine in a desired directory, clone the repo that you just forked
 ```
-git clone https://github.com/jbirky/LP890-9.git 
-cd LP890-9/StellarEvol
+git clone https://github.com/jbirky/LP791-18.git 
+cd LP791-18
 ```
 
-4. Within the `LP890-9/StellarEvol directory`, copy the template jupyter notebook to a directory called your git username 
+4. In your forked repository, create a new branch called `<GroupnameLastnameFirstname>`, e.g., 
 ```
-cp -r template <username>
+git checkout -b StellarBirkyJessica
 ```
 
-5. Launch jupyter notebook and navigate to `LP890-9/StellarEvol/username/run_stellar.ipynb`
+5. Now we'll copy the tutorial files for our project group and create a new local folder to store our results. In the repository, go to your group's directory, e.g., Rotation, and create a directory called `<LastnameFirstname>`, e.g.
+```
+cd Stellar
+mkdir BirkyJessica
+cp run_stellar.ipynb BirkyJessica
+```
+
+6. Launch jupyter notebook and navigate to `LP890-9/Stellar/<LastnameFirstname>/run_stellar.ipynb`
 
 ## Uploading Results to Github
 
-1. We will make all of our commits to the `stellar` branch
-```
-	git checkout stellar
-```
+1. We will make all of our commits to the branch that we created, `<GroupnameLastnameFirstname>`
 
-2. After you’ve made code modifications / have simulations to upload, add and commit them to git 
+2. After you've made code modifications / have simulations to upload, add and commit them to git 
 ```
-	git add <username>/run_stellar.ipynb
-	git add <username>/simulations.npz
-	git commit -m “upload results”
-	git push origin stellar
+	git add Stellar/<LastnameFirstname>/run_stellar.ipynb
+	git add Stellar/<LastnameFirstname>/simulations.npz
+	git commit -m "upload results"
+	git push origin StellarBirkyJessica
 ```
 Add any other results you want to contribute, but make sure not to upload files more than 100MB! 
 
-3. On github, navigate back to your forked branch https://github.com/jbirky/LP890-9. At the top of the repo click ‘contribute’ to create a pull request. One of the admins will then merge your contributions to the main repository.
+3. On github, navigate back to your forked branch https://github.com/jbirky/LP791-18 (this will be under your own username). At the top of the repo click `contribute` to create a pull request. One of the admins will then merge your contributions to the main repository.
 
 
