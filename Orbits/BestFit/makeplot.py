@@ -1,4 +1,4 @@
-# -*- coding: iso-8859-1 -*-
+
 import pathlib
 import sys
 
@@ -14,341 +14,145 @@ path = pathlib.Path(__file__).parents[0].absolute()
 sys.path.insert(1, str(path.parents[0]))
 from get_args import get_args
 
+# Typical plot parameters that make for pretty plot
+mpl.rcParams["figure.figsize"] = (10, 8)
+mpl.rcParams["font.size"] = 16.0
+
 # Run vplanet
-out = vplanet.run(path / "vpl.in", units=False)
+output = vplanet.run(path / "vpl.in", units=False)
 
-fig = plt.figure(figsize=(8.5, 8))
-fig.subplots_adjust(hspace=0.1)
+# Extract data
+time = output.b.Time / 1.0e6  # Scale to Myr
+ecc1 = output.b.Eccentricity
+ecc2 = output.d.Eccentricity
+ecc3 = output.c.Eccentricity
+varpi1 = output.b.LongP
+varpi2 = output.d.LongP
+varpi3 = output.c.LongP
+a1 = output.b.SemiMajorAxis
+a2 = output.d.SemiMajorAxis
+a3 = output.c.SemiMajorAxis
+P1 = output.b.RotPer
+P2 = output.d.RotPer
+P3 = output.c.RotPer
+i1 = output.b.Inc
+i2 = output.d.Inc
+i3 = output.c.Inc
 
-t, a, e, inc, longa, argp, ma = np.loadtxt(path / "hnbdata/1.dat", unpack=True)
-ax = plt.subplot(4, 2, 1)
-plt.plot(
-    out.Mercury.Time / 1e6, out.Mercury.Eccentricity, "k-", label="DistOrb", zorder=100
-)
-plt.plot(t / 1e6, e, "0.5", label="HNBody")
-plt.xlim(0, 1)
-plt.ylabel("$e$")
-plt.xticks(visible=False)
-plt.text(0.05, 0.85, "Mercury", transform=ax.transAxes)
-merc_de = out.Mercury.Eccentricity - e
-merc_di = out.Mercury.Inc - inc
+# Plot
+fig, axes = plt.subplots(nrows=3, ncols=2, sharex=True)
+color = "k"
 
-plt.subplot(4, 2, 2)
-plt.plot(out.Mercury.Time / 1e6, out.Mercury.Inc, "k-", label="DistOrb", zorder=100)
-plt.plot(t / 1e6, inc, "0.5", label="HNBody")
-plt.xlim(0, 1)
-plt.ylabel("$i$ ($^{\circ}$)")
-plt.xticks(visible=False)
-plt.legend(loc="upper right", fontsize=10)
+## Upper left: a1 ##
+axes[0, 0].plot(time, a1, color="C3", zorder=-1, label="LP791-18b")
 
-t, a, e, inc, longa, argp, ma = np.loadtxt(path / "hnbdata/2.dat", unpack=True)
-ax = plt.subplot(4, 2, 3)
-plt.plot(
-    out.Venus.Time / 1e6, out.Venus.Eccentricity, "k-", label="DistOrb", zorder=100
-)
-plt.plot(t / 1e6, e, "0.5", label="HNBody")
-plt.xlim(0, 1)
-plt.ylabel("$e$")
-plt.xticks(visible=False)
-plt.text(0.05, 0.85, "Venus", transform=ax.transAxes)
-venus_de = out.Venus.Eccentricity - e
-venus_di = out.Venus.Inc - inc
+# Format
+axes[0, 0].set_xlim(time.min(), time.max())
+axes[0, 0].legend(loc="best")
+axes[0, 0].set_ylim(0.0098, 0.00981)
+axes[0, 0].set_ylabel("Semi-major Axis [AU]")
 
-plt.subplot(4, 2, 4)
-plt.plot(out.Venus.Time / 1e6, out.Venus.Inc, "k-", label="DistOrb", zorder=100)
-plt.plot(t / 1e6, inc, "0.5", label="HNBody")
-plt.xlim(0, 1)
-plt.ylabel("$i$ ($^{\circ}$)")
-plt.xticks(visible=False)
+## Upper right: eccentricities ##
+axes[0, 1].plot(time, ecc1, color="C3", zorder=-1)
+axes[0, 1].plot(time, ecc2, color="C0", zorder=-1)
+axes[0, 1].plot(time, ecc3, color="C1", zorder=-1)
 
-t, a, e, inc, longa, argp, ma = np.loadtxt(path / "hnbdata/3.dat", unpack=True)
-ax = plt.subplot(4, 2, 5)
-plt.plot(
-    out.Earth.Time / 1e6, out.Earth.Eccentricity, "k-", label="DistOrb", zorder=100
-)
-plt.plot(t / 1e6, e, "0.5", label="HNBody")
-plt.xlim(0, 1)
-plt.ylabel("$e$")
-plt.xticks(visible=False)
-plt.text(0.05, 0.85, "Earth", transform=ax.transAxes)
-earth_de = out.Earth.Eccentricity - e
-earth_di = out.Earth.Inc - inc
+# Format
+axes[0, 1].set_xlim(time.min(), time.max())
+# axes[0, 1].set_ylim(0.0, 0.2)
+axes[0, 1].set_ylabel("Eccentricity")
 
-plt.subplot(4, 2, 6)
-plt.plot(out.Earth.Time / 1e6, out.Earth.Inc, "k-", label="DistOrb", zorder=100)
-plt.plot(t / 1e6, inc, "0.5", label="HNBody")
-plt.xlim(0, 1)
-plt.ylabel("$i$ ($^{\circ}$)")
-plt.xticks(visible=False)
+## Middle left: a2 ##
+axes[1, 0].plot(time, a2, color="C0", zorder=-1, label="LP791-18d")
 
-t, a, e, inc, longa, argp, ma = np.loadtxt(path / "hnbdata/4.dat", unpack=True)
-ax = plt.subplot(4, 2, 7)
-plt.plot(out.Mars.Time / 1e6, out.Mars.Eccentricity, "k-", label="DistOrb", zorder=100)
-plt.plot(t / 1e6, e, "0.5", label="HNBody")
-plt.xlim(0, 1)
-plt.ylabel("$e$")
-plt.xlabel("Time (Myr)")
-plt.text(0.05, 0.05, "Mars", transform=ax.transAxes)
-mars_de = out.Mars.Eccentricity - e
-mars_di = out.Mars.Inc - inc
+# Format
+axes[1, 0].set_xlim(time.min(), time.max())
+axes[1, 0].legend(loc="best")
+axes[1, 0].set_ylim(0.0196, 0.0204)
+axes[1, 0].set_ylabel("Semi-major Axis [AU]")
 
-plt.subplot(4, 2, 8)
-plt.plot(out.Mars.Time / 1e6, out.Mars.Inc, "k-", label="DistOrb", zorder=100)
-plt.plot(t / 1e6, inc, "0.5", label="HNBody")
-plt.xlim(0, 1)
-plt.ylabel("$i$ ($^{\circ}$)")
-plt.xlabel("Time (Myr)")
+## Middle right: diff between longitude of periapses ##
+# varpiDiff = np.fabs(np.fmod(varpi1 - varpi2, 360.0))
+# varpiDiff2 = np.fabs(np.fmod(varpi2 - varpi3, 360.0))
+# axes[1, 1].scatter(time, varpiDiff, color="C3", s=10, zorder=-1)
+# axes[1, 1].scatter(time, varpiDiff2, color="C1", s=10, zorder=-1)
+#
+# # Format
+# axes[1, 1].set_xlim(time.min(), time.max())
+# # axes[1, 1].set_ylim(0, 360)
+# axes[1, 1].set_xlabel("Time [Myr]")
+# axes[1, 1].set_ylabel(r"$\Delta \varpi$ [$^{\circ}$]")
+
+axes[1, 1].plot(time, i1, color="C3", zorder=-1)
+axes[1, 1].plot(time, i2, color="C0", zorder=-1)
+axes[1, 1].plot(time, i3, color="C1", zorder=-1)
+
+# Format
+axes[1, 1].set_xlim(time.min(), time.max())
+# axes[0, 1].set_ylim(0.0, 0.2)
+axes[1, 1].set_ylabel("Inclination (deg)")
+
+## Lower left: a3 ##
+axes[2, 0].plot(time, a3, color="C1", zorder=-1, label="LP791-18c")
+
+# Format
+axes[2, 0].set_xlim(time.min(), time.max())
+axes[2, 0].legend(loc="best")
+axes[2, 0].set_ylim(0.0293, 0.03)
+axes[2, 0].set_xlabel("Time [Myr]")
+axes[2, 0].set_ylabel("Semi-major Axis [AU]")
+
+## Lower right: rotation periods ##
+axes[2, 1].plot(time, P1, color="C3", zorder=-1)
+axes[2, 1].plot(time, P2, color="C0", zorder=-1)
+axes[2, 1].plot(time, P3, color="C1", zorder=-1)
+
+# Format
+axes[2, 1].set_xlim(time.min(), time.max())
+# axes[2, 1].set_ylim(0, 5)
+axes[2, 1].set_xlabel("Time [Myr]")
+axes[2, 1].set_ylabel(r"Rotation period (days)")
+
+# Final formating
+#fig.tight_layout()
+for ax in axes.flatten():
+    # Rasterize
+    ax.set_rasterization_zorder(0)
+
+    # Set tick locations
+    #ax.set_xticklabels(["0", "2", "4", "6", "8", "10"])
+    # ax.set_xticks([0, 2, 4, 6, 8, 10])
+
+# Show late-term ecc damping
+# inset1 = fig.add_axes([0.74, 0.735, 0.2, 0.2])
+# inset1.plot(time, ecc1, color="C3", zorder=20)
+# inset1.plot(time, ecc2, color="C0", zorder=20)
+#
+# inset1.set_xlabel("Time [Myr]", fontsize=12)
+# inset1.set_ylabel("Eccentricity", fontsize=12)
+# inset1.set_xlim(8, 10)
+# inset1.set_xticks([8, 9, 10])
+# inset1.set_xticklabels(["8", "9", "10"], fontsize=12)
+# inset1.set_yticks([1.0e-4, 1.0e-3, 1.0e-2])
+# inset1.set_yticklabels(["$10^{-4}$", "$10^{-3}$", "$10^{-2}$"], fontsize=12)
+# inset1.set_yscale("log")
+
+# Show early apsidal locking
+# inset2 = fig.add_axes([0.74, 0.235, 0.2, 0.2])
+# inset2.scatter(time, varpiDiff, color="C3", s=10, zorder=20)
+#
+# inset2.set_xlim(0.1, 3)
+# inset2.set_ylim(0, 360)
+# inset2.set_xscale("log")
+# inset2.set_yticks([0, 180, 360])
+# inset2.set_yticklabels(["0", "180", "360"], fontsize=12)
+# inset2.set_ylabel(r"$\Delta \varpi$ [$^{\circ}$]", fontsize=12)
+# inset2.set_xticks([0.1, 0.25, 0.5, 1, 2, 3])
+# inset2.set_xticklabels(["0.1", "0.25", "0.5", "1", "2", "3"], fontsize=12)
+# inset2.set_xlabel("Time [Myr]", fontsize=12)
 
 # Save the figure
-ext = get_args().ext
-fig.savefig(path / f"SSDistOrbDistRotInner.{ext}", bbox_inches="tight", dpi=300)
-plt.close()
-
-######################################################################
-fig = plt.figure(figsize=(8.5, 8))
-fig.subplots_adjust(hspace=0.1, wspace=0.23)
-
-t, a, e, inc, longa, argp, ma = np.loadtxt(path / "hnbdata/5.dat", unpack=True)
-ax = plt.subplot(4, 2, 1)
-plt.plot(
-    out.Jupiter.Time / 1e6, out.Jupiter.Eccentricity, "k-", label="DistOrb", zorder=100
-)
-plt.plot(t / 1e6, e, "0.5", label="HNBody")
-plt.xlim(0, 1)
-plt.ylabel("$e$")
-plt.xticks(visible=False)
-plt.text(0.05, 0.05, "Jupiter", transform=ax.transAxes)
-jup_de = out.Jupiter.Eccentricity - e
-jup_di = out.Jupiter.Inc - inc
-
-plt.subplot(4, 2, 2)
-plt.plot(out.Jupiter.Time / 1e6, out.Jupiter.Inc, "k-", label="DistOrb", zorder=100)
-plt.plot(t / 1e6, inc, "0.5", label="HNBody")
-plt.xlim(0, 1)
-plt.ylim(1, 2.3)
-plt.ylabel("$i$ ($^{\circ}$)")
-plt.xticks(visible=False)
-plt.legend(loc="upper right", fontsize=10, ncol=2)
-
-t, a, e, inc, longa, argp, ma = np.loadtxt(path / "hnbdata/6.dat", unpack=True)
-ax = plt.subplot(4, 2, 3)
-plt.plot(
-    out.Saturn.Time / 1e6, out.Saturn.Eccentricity, "k-", label="DistOrb", zorder=100
-)
-plt.plot(t / 1e6, e, "0.5", label="HNBody")
-plt.xlim(0, 1)
-plt.ylabel("$e$")
-plt.xticks(visible=False)
-plt.text(0.05, 0.9, "Saturn", transform=ax.transAxes)
-sat_de = out.Saturn.Eccentricity - e
-sat_di = out.Saturn.Inc - inc
-
-plt.subplot(4, 2, 4)
-plt.plot(out.Saturn.Time / 1e6, out.Saturn.Inc, "k-", label="DistOrb", zorder=100)
-plt.plot(t / 1e6, inc, "0.5", label="HNBody")
-plt.xlim(0, 1)
-plt.ylabel("$i$ ($^{\circ}$)")
-plt.xticks(visible=False)
-
-t, a, e, inc, longa, argp, ma = np.loadtxt(path / "hnbdata/7.dat", unpack=True)
-ax = plt.subplot(4, 2, 5)
-plt.plot(
-    out.George.Time / 1e6, out.George.Eccentricity, "k-", label="DistOrb", zorder=100
-)
-plt.plot(t / 1e6, e, "0.5", label="HNBody")
-plt.xlim(0, 1)
-plt.ylabel("$e$")
-plt.xticks(visible=False)
-plt.text(0.05, 0.85, "Uranus", transform=ax.transAxes)
-george_de = out.George.Eccentricity - e
-george_di = out.George.Inc - inc
-
-plt.subplot(4, 2, 6)
-plt.plot(out.George.Time / 1e6, out.George.Inc, "k-", label="DistOrb", zorder=100)
-plt.plot(t / 1e6, inc, "0.5", label="HNBody")
-plt.xlim(0, 1)
-plt.ylabel("$i$ ($^{\circ}$)")
-plt.xticks(visible=False)
-
-t, a, e, inc, longa, argp, ma = np.loadtxt(path / "hnbdata/8.dat", unpack=True)
-ax = plt.subplot(4, 2, 7)
-plt.plot(
-    out.Neptune.Time / 1e6, out.Neptune.Eccentricity, "k-", label="DistOrb", zorder=100
-)
-plt.plot(t / 1e6, e, "0.5", label="HNBody")
-plt.xlim(0, 1)
-plt.ylabel("$e$")
-plt.xlabel("Time (Myr)")
-plt.text(0.05, 0.85, "Neptune", transform=ax.transAxes)
-nept_de = out.Neptune.Eccentricity - e
-nept_di = out.Neptune.Inc - inc
-
-plt.subplot(4, 2, 8)
-plt.plot(out.Neptune.Time / 1e6, out.Neptune.Inc, "k-", label="DistOrb", zorder=100)
-plt.plot(t / 1e6, inc, "0.5", label="HNBody")
-plt.xlim(0, 1)
-plt.ylabel("$i$ ($^{\circ}$)")
-plt.xlabel("Time (Myr)")
-
-# Save
-fig.savefig(path / f"SSDistOrbDistRotOuter.{ext}", bbox_inches="tight", dpi=300)
-plt.close()
-
-fig = plt.figure(figsize=(8.5, 4))
-fig.subplots_adjust(hspace=0.1, wspace=0.23)
-
-plt.subplot(2, 2, 1)
-plt.plot(out.Earth.Time / 1e6, merc_de, c=vplot.colors.purple, lw=1, label="Mercury")
-plt.plot(out.Earth.Time / 1e6, venus_de, c=vplot.colors.orange, lw=1, label="Venus")
-plt.plot(out.Earth.Time / 1e6, earth_de, c=vplot.colors.pale_blue, lw=1, label="Earth")
-plt.plot(out.Earth.Time / 1e6, mars_de, c=vplot.colors.red, lw=1, label="Mars")
-plt.ylabel("$\Delta e$")
-plt.xticks(visible=False)
-plt.legend(loc="lower left", fontsize=8, ncol=2)
-
-plt.subplot(2, 2, 3)
-plt.plot(out.Earth.Time / 1e6, jup_de, c=vplot.colors.purple, lw=1, label="Jupiter")
-plt.plot(
-    out.Earth.Time / 1e6, sat_de, c=vplot.colors.orange, lw=1, zorder=-1, label="Saturn"
-)
-plt.plot(
-    out.Earth.Time / 1e6, george_de, c=vplot.colors.pale_blue, lw=1, label="Uranus"
-)
-plt.plot(out.Earth.Time / 1e6, nept_de, c=vplot.colors.red, lw=1, label="Neptune")
-plt.ylabel("$\Delta e$")
-plt.xlabel("Time (Myr)")
-plt.legend(loc="lower left", fontsize=8, ncol=2)
-
-
-plt.subplot(2, 2, 2)
-plt.plot(out.Earth.Time / 1e6, merc_di, c=vplot.colors.purple, lw=1)
-plt.plot(out.Earth.Time / 1e6, venus_di, c=vplot.colors.orange, lw=1)
-plt.plot(out.Earth.Time / 1e6, earth_di, c=vplot.colors.pale_blue, lw=1)
-plt.plot(out.Earth.Time / 1e6, mars_di, c=vplot.colors.red, lw=1)
-plt.xticks(visible=False)
-plt.ylabel("$\Delta i$ ($^{\circ}$)")
-
-plt.subplot(2, 2, 4)
-plt.plot(out.Earth.Time / 1e6, jup_di, c=vplot.colors.purple, lw=1)
-plt.plot(out.Earth.Time / 1e6, sat_di, c=vplot.colors.orange, lw=1, zorder=-1)
-plt.plot(out.Earth.Time / 1e6, george_di, c=vplot.colors.pale_blue, lw=1)
-plt.plot(out.Earth.Time / 1e6, nept_di, c=vplot.colors.red, lw=1)
-plt.ylabel("$\Delta i$ ($^{\circ}$)")
-plt.xlabel("Time (Myr)")
-
-# Save
-fig.savefig(path / f"SSDistOrbDistRotError.{ext}", bbox_inches="tight", dpi=300)
-plt.close()
-
-
-laskar_time_wo = np.array([0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0])
-laskar_wo = np.array([23.5, 15, 22, 31.5, 28.5, 23.0, 26.5, 28.0, 22.0, 21, 30.5])
-
-laskar_time_w = np.array(
-    [
-        0,
-        0.05,
-        0.1,
-        0.15,
-        0.2,
-        0.25,
-        0.3,
-        0.35,
-        0.4,
-        0.45,
-        0.5,
-        0.55,
-        0.6,
-        0.65,
-        0.7,
-        0.75,
-        0.8,
-        0.85,
-        0.9,
-        0.95,
-        1.0,
-    ]
-)
-laskar_w = np.array(
-    [
-        23.5,
-        22.5,
-        23.25,
-        23.75,
-        23.5,
-        22.75,
-        23.0,
-        23.5,
-        23.5,
-        23.25,
-        23.25,
-        23.25,
-        23.5,
-        24.0,
-        23.5,
-        22.75,
-        23,
-        23.5,
-        23.5,
-        23.0,
-        22.5,
-    ]
-)
-
-# Run vplanet (mars)
-vplanet.run(path / "marshnb" / "vpl.in", units=False)
-vplanet.run(path / "marsvpl" / "vpl.in", units=False)
-tm, oblm, pAm, precf = np.loadtxt(path / "marshnb/solarsys.Mars.backward", unpack=True)
-tm1, em1, incm1, argpm1, longam1, oblm1, pAm1, precf1 = np.loadtxt(
-    path / "marsvpl/solarsys.Mars.backward", unpack=True
-)
-
-# Run vplanet w/ out moon
-out2 = vplanet.run(path / "womoon" / "vpl.in", units=False)
-
-fig = plt.figure(figsize=(8.5, 4))
-fig.subplots_adjust(wspace=0.25)
-
-plt.subplot(1, 2, 1)
-plt.plot(
-    out.Earth.Time / 1e6,
-    out.Earth.Obliquity,
-    "-",
-    c=vplot.colors.pale_blue,
-    label="Earth with Moon",
-)
-plt.plot(
-    out2.Earth.Time / 1e6,
-    out2.Earth.Obliquity,
-    "-",
-    c=vplot.colors.dark_blue,
-    label="Earth without Moon",
-)
-plt.plot(laskar_time_w, laskar_w, "o", c=vplot.colors.pale_blue, mfc="None")
-plt.plot(laskar_time_wo, laskar_wo, "o", c=vplot.colors.dark_blue, mfc="None")
-plt.ylabel(r"$\varepsilon$ ($^{\circ}$)")
-plt.xlabel("Time (Myr)")
-plt.xlim(0, 1)
-plt.legend(loc="upper right", fontsize=10)
-
-ax = plt.subplot(1, 2, 2)
-plt.plot(
-    tm1 / 1e6,
-    oblm1,
-    "-",
-    color=vplot.colors.orange,
-    zorder=100,
-    lw=1,
-    label="Mars (DistOrb+DistRot)",
-)
-plt.plot(tm / 1e6, oblm, "-", c=vplot.colors.red, lw=1, label="Mars (HNBody+DistRot)")
-plt.ylabel(r"$\varepsilon$ ($^{\circ}$)")
-plt.xlabel("Time (Myr)")
-plt.xlim(-10, 0)
-plt.ylim(5, 55)
-plt.legend(loc="upper right", fontsize=10)
-
-
-# Save
-fig.savefig(path / f"SSDistOrbDistRotObliq.{ext}", bbox_inches="tight", dpi=300)
-plt.close()
+#ext = get_args().ext
+ext = "pdf"
+#fig.savefig(path / f"ApseLock.{ext}", bbox_inches="tight", dpi=600)
+fig.savefig(path / f"LP791-18_secular_bestfit.{ext}", dpi=600)
