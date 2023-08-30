@@ -1,4 +1,4 @@
-sSrcFolder  ../EarthInterior
+sSrcFolder  .
 sDestFolder ParameterSweep
 sTrialName test_
 
