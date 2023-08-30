@@ -1,0 +1,35 @@
+sSrcFolder  .
+sDestFolder ParameterSweep
+sTrialName test_
+sSampleMode random
+
+iSeed 12345
+iNumTrials 50
+
+sBodyFile   star.in
+
+sBodyFile   b.in
+
+dRotPeriod [0.0027378507871321013, 0.0027378507871321013, g, min0.0013689253935660506, max0.02737850787132101] pb
+dObliquity [0, 180, c] ob
+dLongA [0, 360, u] longb
+dInc [1.63, 0.945, g, min0] incb
+dTidalQ [10, 1000, u] qb
+
+sBodyFile   c.in
+
+dRotPeriod [0.0027378507871321013, 0.0027378507871321013, g, min0.0013689253935660506, max0.02737850787132101] pc
+dObliquity [0, 180, c] ob
+dLongA [0, 360, u] longb
+dInc [0.22, 0.13, g, min0] incb
+dTidalQ [10, 1000, u] qb
+
+sBodyFile   d.in
+
+dRotPeriod [0.0027378507871321013, 0.0027378507871321013, g, min0.0013689253935660506, max0.02737850787132101] pd
+dObliquity [0, 180, c] ob
+dLongA [0, 360, u] longb
+dInc [0.66, 0.41, g, min0] incb
+dTidalQ [10, 1000, u] qb
+
+sPrimaryFile   vpl.in
