@@ -11,8 +11,8 @@ import vplot as vpl
 
 import vplanet
 
-lastname_firstname = ??
-module = ?? # "distorb" or "eqtide"
+lastname_firstname = "vowellnoah"
+module = "distorb" # "distorb" or "eqtide"
 
 # Path hacks
 path = pathlib.Path(__file__).parents[0].absolute()
@@ -29,7 +29,7 @@ else:
 # Run multi-planet
 if not (path / ("."+lastname_firstname+f"_{module}")).exists():
     print("Running MultiPlanet...")
-    subprocess.check_output(["multiplanet", "-c", "1", "-bp", f"vspace_{module}.in"], cwd=path)
+    subprocess.check_output(["multiplanet", "-c", "6", "-bp", f"vspace_{module}.in"], cwd=path)
 else:
     print("Multiplanet already run")
 
@@ -63,7 +63,8 @@ if module == "distorb":
 
 fig, axes = plt.subplots(ncols=2,nrows=3,sharex=True)
 
-for i in np.arange(len(eccb)):
+#for i in np.arange(len(eccb)):
+for i in np.arange(5):
     axes[0][0].plot(time[i], eccb[i])
     axes[1][0].plot(time[i], eccd[i])
     axes[2][0].plot(time[i], eccc[i])
@@ -80,6 +81,8 @@ for i in np.arange(len(eccb)):
 axes[0][0].set_ylabel("Eccentricity (b)")
 axes[1][0].set_ylabel("Eccentricity (d)")
 axes[2][0].set_ylabel("Eccentricity (c)")
+
+axes[0][0].set_xlim(0,10000)
 
 if module == "distorb":
     axes[0][1].set_ylabel("Inclination (b)")

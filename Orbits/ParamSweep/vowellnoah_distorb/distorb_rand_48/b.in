@@ -1,0 +1,29 @@
+# LP791-18-b Parameters 
+sName		b			# Body's name
+saModules   distorb
+
+# Physical Properties
+dMass -2.6037138156247925
+dRadius -1.1375321039152453
+dRotPeriod	-1.0  		# Rotation period, negative -> days
+dObliquity	0.0             # Obliquity (degrees)
+dRadGyra	0.4             # Radius of gyration (unitless)
+
+# Orbital Properties
+dEcc 0.012462004268565086
+dOrbPeriod -0.9479963279678812
+
+# Eqtide Properties
+#dTidalQ         100             # Tidal phase lag
+#dK2             0.3             # Love number of degree 2
+#dMaxLockDiff    0.01            # Tidally lock when spin period is within 1% of orbital period
+#saTidePerts     star            # Tidally interacting with star
+
+# DISTORB Parameters
+dInc 2.5800850600345466
+dLongA 138.45108731149122
+dLongP 274.1663669883821
+sOrbitModel     rd4             # Use 4th Order disturbing function model
+
+#Output
+saOutputOrder Time -TotEn -TotAngMom LongP SemimajorAxis Eccentricity Inc LongA
