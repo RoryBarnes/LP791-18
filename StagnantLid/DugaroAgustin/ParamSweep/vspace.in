@@ -1,0 +1,18 @@
+sSrcFolder  .
+sDestFolder SweepResults
+sTrialName test_
+sSampleMode random
+iSeed 634
+iNumTrials 10
+
+sBodyFile   sun.in
+
+sBodyFile   tidalearth.in
+
+dViscRef [6e5, 6e8, t] nu
+dTMan 	 [2500,3500, u] tm
+dEruptEff [0.01, 0.02, u] eps
+dElecCondCore [5e5, 5e6, u] sig
+
+
+sPrimaryFile   vpl.in
