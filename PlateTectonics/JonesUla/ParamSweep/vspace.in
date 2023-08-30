@@ -1,0 +1,19 @@
+sSrcFolder  . #same folder we are in. could also write: ../ParamSweep
+sDestFolder SweepResults
+sTrialName test_
+sSampleMode random
+iSeed 597 #seeds the randomness, so can run the code over and over and get the same results
+iNumTrials 10 #number of trials
+
+sBodyFile   sun.in
+
+sBodyFile   tidalearth.in
+
+#see sampling rules in github vspace documentation
+
+dViscRef [6e5, 6e8, t] nu #log uniform distribution
+dTMan [2500, 3500, u] tm #uniform dist
+dEruptEff [0.01, 0.2, u] eps
+dElecCondCore [5e5, 5e6, u] sig
+
+sPrimaryFile   vpl.in
