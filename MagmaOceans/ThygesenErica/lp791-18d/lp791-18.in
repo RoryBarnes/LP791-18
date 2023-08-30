@@ -1,0 +1,23 @@
+# The host star
+sName	        lp791-18                # Body's name
+saModules	stellar, eqtide          # Modules to apply, exact spelling required
+
+# Output
+saOutputOrder Age -Luminosity -LXUVStellar -Radius Temperature
+
+# Physical Parameters
+dMass         0.139                       # Mass, solar masses
+dAge          1e6
+
+# STELLAR Parameters
+sStellarModel baraffe                     # Stellar evolution model: `baraffe` or `none`
+dSatXUVFrac   0.003                       # Saturation level of the XUV luminosity
+dSatXUVTime   -3.14			  # End of XUV-Saturation (- in Gyr, default .1Gyr)
+dXUVBeta    1.17    # XUV decay power law exponenet for the stellar XUV luminosity
+
+# EQTIDE Parameters
+dTidalQ         100          # Tidal phase lag
+dK2             0.5          # Love number of degree 2
+dMaxLockDiff    0.01
+sTideModel      p2           # Tidal model, p2=CPL, t8=CTL
+saTidePerts     d        # Body name(s) of tidal perturbers
