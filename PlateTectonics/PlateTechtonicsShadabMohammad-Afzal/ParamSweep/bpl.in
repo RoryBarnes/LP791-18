@@ -1,0 +1,11 @@
+sDestFolder SweepResults
+sArchiveFile MohammadAfzalShadab.bpa
+sOutputFile MohammadAfzalShadab.bpf
+
+saBodyFiles   tidalearth.in sun.in
+sPrimaryFile   vpl.in
+
+saKeyInclude tidalearth:dViscRef:option tidalearth:dTMan:option tidalearth:dEruptEff:option tidalearth:dElecCondCore:option tidalearth:MagMom:forward tidalearth:HflowMeltMan:forward
+
+
+
