@@ -1,0 +1,33 @@
+import pathlib
+import sys
+
+import matplotlib as mpl
+import matplotlib.pyplot as plt
+import numpy as np
+import vplot
+
+import vplanet
+
+# Path hacks
+path = pathlib.Path(__file__).parents[0].absolute()
+sys.path.insert(1, str(path.parents[0]))
+
+# Tweak
+plt.rcParams.update({"font.size": 16, "legend.fontsize": 16})
+
+# Run vplanet
+output = vplanet.run(path / "vpl.in", units=False)
+
+Time = output.b.Time
+
+
+
+
+
+
+
+
+
+
+
+
