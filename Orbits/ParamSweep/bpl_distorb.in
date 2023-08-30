@@ -1,0 +1,13 @@
+sDestFolder ???_distorb
+sArchiveFile ???_distorb.bpa
+sOutputFile ???_distorb.bpf
+
+saBodyFiles   b.in c.in d.in
+sPrimaryFile   vpl.in
+
+saKeyInclude b:SemiMajorAxis:forward c:SemiMajorAxis:forward d:SemiMajorAxis:forward $
+  b:Eccentricity:forward c:Eccentricity:forward d:Eccentricity:forward $
+  b:Inc:forward c:Inc:forward d:Inc:forward $
+  b:LongA:forward c:LongA:forward d:LongA:forward $
+  b:LongP:forward c:LongP:forward d:LongP:forward $
+  b:Time:forward

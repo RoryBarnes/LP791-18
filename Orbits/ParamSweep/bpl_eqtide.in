@@ -1,0 +1,12 @@
+sDestFolder ???_eqtide
+sArchiveFile ???_eqtide.bpa
+sOutputFile ???_eqtide.bpf
+
+saBodyFiles   b.in c.in d.in
+sPrimaryFile   vpl.in
+
+saKeyInclude b:SemiMajorAxis:forward c:SemiMajorAxis:forward d:SemiMajorAxis:forward $
+  b:Eccentricity:forward c:Eccentricity:forward d:Eccentricity:forward $
+  b:RotPer:forward c:RotPer:forward d:RotPer:forward $
+  b:SurfEnFluxTotal:forward c:SurfEnFluxTotal:forward d:SurfEnFluxTotal:forward $
+  b:Time:forward
