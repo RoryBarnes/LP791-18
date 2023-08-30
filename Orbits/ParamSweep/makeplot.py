@@ -11,70 +11,85 @@ import vplot as vpl
 
 import vplanet
 
+lastname_firstname = ??
+module = ?? # "distorb" or "eqtide"
+
 # Path hacks
 path = pathlib.Path(__file__).parents[0].absolute()
 sys.path.insert(1, str(path.parents[0]))
 from get_args import get_args
 
 # Run vspace
-if not (path / "ParameterSweep").exists():
+if not (path / (lastname_firstname+f"_{module}")).exists():
     print("Running VSPACE...")
-    subprocess.check_output(["vspace", "vspace.in"], cwd=path)
+    subprocess.check_output(["vspace", f"vspace_{module}.in"], cwd=path)
 else:
     print("VPSACE already run")
 
 # Run multi-planet
-if not (path / ".ParameterSweep").exists():
+if not (path / ("."+lastname_firstname+f"_{module}")).exists():
     print("Running MultiPlanet...")
-    subprocess.check_output(["multiplanet", "vspace.in"], cwd=path)
+    subprocess.check_output(["multiplanet", "-c", "1", "-bp", f"vspace_{module}.in"], cwd=path)
 else:
     print("Multiplanet already run")
 
 # Run bigplanet
-if not (path / "ParameterSweep.bpf").exists():
+if not (path / (lastname_firstname+f"_{module}.bpf")).exists():
     print("Building BigPlanet File")
-    subprocess.check_output(["bigplanet", "bpl.in"], cwd=path)
+    subprocess.check_output(["bigplanet", f"bpl_{module}.in"], cwd=path)
 else:
     print("BigPlanet File already built")
 
 print("Creating figure...")
-data = bp.BPLFile(path / "ParameterSweep.bpf")
+data = bp.BPLFile(path / (lastname_firstname+f"_{module}.bpf"))
 
 mpl.rcParams["figure.figsize"] = (6.5, 6.5)
-fig = plt.figure()
 
-RIC = bp.ExtractColumn(data, "earth:RIC:final")
-RIC_units = bp.ExtractUnits(data, "earth:RIC:final")
 
-TCore_uniq = bp.ExtractUniqueValues(data, "earth:TCore:initial")
-TCore_units = bp.ExtractUnits(data, "earth:TCore:initial")
+time = bp.ExtractColumn(data, "b:Time:forward")
+eccb = bp.ExtractColumn(data, "b:Eccentricity:forward")
+semib = bp.ExtractColumn(data, "b:SemiMajorAxis:forward")
 
-K40_uniq = bp.ExtractUniqueValues(data, "earth:40KPowerCore:final")
-K40_units = bp.ExtractUnits(data, "earth:40KPowerCore:final")
+eccd = bp.ExtractColumn(data, "d:Eccentricity:forward")
+semid = bp.ExtractColumn(data, "d:SemiMajorAxis:forward")
 
-RIC_Matrix = np.reshape(RIC, (len(TCore_uniq), len(K40_uniq)))
+eccc = bp.ExtractColumn(data, "c:Eccentricity:forward")
+semic = bp.ExtractColumn(data, "c:SemiMajorAxis:forward")
 
-RIC_Matrix = bp.CreateMatrix(TCore_uniq, K40_uniq, RIC)
+if module == "distorb":
+  incb = bp.ExtractColumn(data, "b:Inc:forward")
+  incd = bp.ExtractColumn(data, "d:Inc:forward")
+  incc = bp.ExtractColumn(data, "c:Inc:forward")
 
-contours = [0, 500, 1000, 1500, 2000, 2500]
-xlabel = "Initial Core Temperature (" + TCore_units + ")"
-ylabel = "Current Potassium-40 Power (" + K40_units + ")"
-title = "Final Inner Core Radius (" + RIC_units + ")"
+fig, axes = plt.subplots(ncols=2,nrows=3,sharex=True)
 
-plt.xlabel(xlabel, fontsize=20)
-plt.ylabel(ylabel, fontsize=20)
-plt.title(title, fontsize=20)
+for i in np.arange(len(eccb)):
+    axes[0][0].plot(time[i], eccb[i])
+    axes[1][0].plot(time[i], eccd[i])
+    axes[2][0].plot(time[i], eccc[i])
 
-plt.tick_params(axis="both", labelsize=20)
+    if module == "distorb":
+        axes[0][1].plot(time[i], incb[i])
+        axes[1][1].plot(time[i], incd[i])
+        axes[2][1].plot(time[i], incc[i])
+    else:
+        axes[0][1].plot(time[i], semib[i])
+        axes[1][1].plot(time[i], semid[i])
+        axes[2][1].plot(time[i], semic[i])
 
-cont = plt.contour(
-    TCore_uniq, K40_uniq, RIC_Matrix, colors=vpl.colors.pale_blue, levels=contours
-)
-plt.clabel(cont, fmt="%.0f", fontsize=15)
+axes[0][0].set_ylabel("Eccentricity (b)")
+axes[1][0].set_ylabel("Eccentricity (d)")
+axes[2][0].set_ylabel("Eccentricity (c)")
 
-cont = plt.contour(TCore_uniq, K40_uniq, RIC_Matrix, levels=[1221])
-plt.clabel(cont, fmt="%.0f", fontsize=15)
+if module == "distorb":
+    axes[0][1].set_ylabel("Inclination (b)")
+    axes[1][1].set_ylabel("Inclination (d)")
+    axes[2][1].set_ylabel("Inclination (c)")
+else:
+    axes[0][1].set_ylabel("Semi-major axis (b)")
+    axes[1][1].set_ylabel("Semi-major axis (d)")
+    axes[2][1].set_ylabel("Semi-major axis (c)")
 
 # Save the figure
 ext = get_args().ext
-fig.savefig(path / f"ParameterSweep.{ext}", dpi=300)
+fig.savefig(path / (lastname_firstname+f"_{module}.{ext}"), dpi=300)

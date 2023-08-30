@@ -1,0 +1,54 @@
+sSrcFolder  ../BestFit/???
+sDestFolder ???_eqtide
+sTrialName  eqtide_
+iSeed       ???
+iNumTrials  ???
+sSampleMode random
+
+sBodyFile   star.in
+dMass      [0.139, 0.005, g] ms
+dRadius    [-19.85, 0.76, g] Rs
+
+sBodyFile   b.in
+saModules   eqtide
+dMass       [-2.02, 0.36, g] mb
+dRadius     [-1.212, 0.0585, g] Rb
+dEcc        [0.1, 0.1, g, min0.0, max1.0] eb
+dOrbPeriod  [-0.977, 0.02, g] Pb
+dTidalQ     [10, 1000, u] Qb
+dMinValue   1e-10
+rm dInc
+rm dLongA
+rm dLongP
+rm sOrbitModel
+saOutputOrder Time -TotEn -TotAngMom -RotPer SemimajorAxis Eccentricity -SurfEnFluxTot
+
+sBodyFile   c.in
+saModules   eqtide
+dMass       [-7.1, 0.7, g] mc
+dRadius     [-2.438, 0.096, g] Rc
+dEcc        [0.1, 0.1, g, min0.0, max1.0] ec
+dOrbPeriod  [-5.14, 0.1, g] Pc
+dTidalQ     [1000, 100000, u] Qc
+rm dInc
+rm dLongA
+rm dLongP
+saOutputOrder Time -RotPer SemimajorAxis Eccentricity -SurfEnFluxTot
+
+
+sBodyFile   d.in
+saModules   eqtide
+dMass       [-0.9, 0.45, g] md
+dRadius     [-1.032, 0.0435, g] Rd
+dEcc        [0.1, 0.1, g, min0.0, max1.0] ed
+dOrbPeriod  [-2.77, 0.02, g] Pd
+dTidalQ     [10, 1000, u] Qd
+rm dInc
+rm dLongA
+rm dLongP
+saOutputOrder Time -RotPer SemimajorAxis Eccentricity -SurfEnFluxTot
+
+sPrimaryFile   vpl.in
+dStopTime      1e8
+dOutputTime    1e5
+dEta           0.1
