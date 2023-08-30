@@ -1,0 +1,69 @@
+File: vpl.in
+File: vpl.in
+File: star.in
+File: star.in
+File: b.in
+File: b.in
+File: c.in
+File: c.in
+File: d.in
+File: d.in
+INFO: sUnitMass set in vpl.in, all bodies will use this unit.
+INFO: sUnitTime set in vpl.in, all bodies will use this unit.
+INFO: sUnitAngle set in vpl.in, all bodies will use this unit.
+INFO: sUnitLength set in vpl.in, all bodies will use this unit.
+INFO: sUnitTemp set in vpl.in, all bodies will use this unit.
+INFO: dRadius < 0 in file star.in, units assumed to be Rearth.
+INFO: dRotPeriod < 0 in file star.in, units assumed to be Days.
+INFO: dMass < 0 in file b.in, units assumed to be Mearth.
+INFO: dOrbPeriod < 0 in file b.in, units assumed to be Days.
+INFO: dRadius < 0 in file b.in, units assumed to be Rearth.
+INFO: dRotPeriod < 0 in file b.in, units assumed to be Days.
+INFO: dMass < 0 in file c.in, units assumed to be Mearth.
+INFO: dOrbPeriod < 0 in file c.in, units assumed to be Days.
+INFO: dRadius < 0 in file c.in, units assumed to be Rearth.
+INFO: dRotPeriod < 0 in file c.in, units assumed to be Days.
+INFO: dMass < 0 in file d.in, units assumed to be Mearth.
+INFO: dOrbPeriod < 0 in file d.in, units assumed to be Days.
+INFO: dRadius < 0 in file d.in, units assumed to be Rearth.
+INFO: dRotPeriod < 0 in file d.in, units assumed to be Days.
+INFO: sOutFile not set, defaulting to LP791-18.star.forward.
+INFO: sOutFile not set, defaulting to LP791-18.b.forward.
+INFO: sOutFile not set, defaulting to LP791-18.c.forward.
+INFO: sOutFile not set, defaulting to LP791-18.d.forward.
+INFO: sIntegrationMethod not set, defaulting to Runge-Kutta4.
+Body: star
+Body: b
+Body: c
+Body: d
+Body: star
+Body: b
+Body: c
+Body: d
+Body: star
+Body: b
+Body: c
+Body: d
+Body: star
+Body: b
+Body: c
+Body: d
+star's Im(k_2) verified.
+b's Im(k_2) verified.
+c's Im(k_2) verified.
+d's Im(k_2) verified.
+INFO: DeltaTime output for first step is defined to be 0 when bVarDt = 1.
+Input files read.
+INFO: Age set in one file, all bodies will have this age.
+All of star's modules verified.
+All of b's modules verified.
+All of c's modules verified.
+All of d's modules verified.
+Input files verified.
+Log file written.
+b spin locked at 9.136842 years.
+d spin locked at 1869.287370 years.
+c spin locked at 1.281583e+06 years.
+Evolution completed.
+Log file updated.
+Simulation completed.
