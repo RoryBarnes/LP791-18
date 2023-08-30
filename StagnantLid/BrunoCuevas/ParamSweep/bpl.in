@@ -1,0 +1,6 @@
+sDestFolder SweepResults
+sArchiveFile BrunoCuevas.bpa
+sOutputFile BrunoCuevas.bpf
+saBodyFiles   tidalearth.in sun.in
+sPrimaryFile   vpl.in
+saKeyInclude tidalearth:dViscRef:option tidalearth:dTMan:option tidalearth:dEruptEff:option tidalearth:dElecCondCore:option tidalearth:MagMom:forward tidalearth:HflowMeltMan:forward
