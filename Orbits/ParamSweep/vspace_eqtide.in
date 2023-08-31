@@ -1,8 +1,8 @@
-sSrcFolder  ../BestFit/???
-sDestFolder ???_eqtide
+sSrcFolder  ../BestFit/MichaelSolontoi
+sDestFolder MichaelSolontoi_eqtide
 sTrialName  eqtide_
-iSeed       ???
-iNumTrials  ???
+iSeed       86782
+iNumTrials  100
 sSampleMode random
 
 sBodyFile   star.in

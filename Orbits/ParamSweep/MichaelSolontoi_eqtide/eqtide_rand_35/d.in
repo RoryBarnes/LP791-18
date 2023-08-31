@@ -1,0 +1,29 @@
+# 
+sName		d			# Body's name
+saModules   eqtide
+
+# Physical Properties
+dMass -0.38395892149927024
+dRadius -1.1178031129187473
+dRotPeriod	-1.0  		# Rotation period, negative -> days
+dObliquity	0.0             # Obliquity (degrees)
+dRadGyra	0.4             # Radius of gyration
+
+
+# Orbital Properties
+dEcc 0.04581949101831065
+dOrbPeriod -2.7888625607504474
+
+# Eqtide Properties
+dTidalQ 190.94849910311615
+dK2             0.3             # Love number of degree 2
+dMaxLockDiff    0.01            # Tidally lock when spin period is within 10% of orbital period
+saTidePerts     star            # Tidally interact with star
+
+# DISTORB Parameters
+#dInc            0.66             # Orbital inclination (degrees)
+#dLongA          178.0           # Longitude of the Ascending node (degrees)
+#dLongP          270.0           # Longitude of the Periapse (degrees)
+
+#Output
+saOutputOrder Time -RotPer SemimajorAxis Eccentricity -SurfEnFluxTot
