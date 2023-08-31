@@ -1,0 +1,66 @@
+sSrcFolder  ../BestFit/???
+sDestFolder ???_distorb
+sTrialName  distorb_
+iSeed       ???
+iNumTrials  ???
+sSampleMode random
+
+sBodyFile   star.in
+dMass       [0.139, 0.005, g] ms
+dRadius     [-19.85, 0.76, g] Rs
+rm saModules
+rm dTidalQ
+rm dK2
+rm sTideModel
+rm saTidePerts
+rm saOutputOrder
+
+sBodyFile   b.in
+saModules   distorb
+dMass       [-2.02, 0.36, g] mb
+dRadius     [-1.212, 0.0585, g] Rb
+dOrbPeriod  [-0.9479981, 2.1e-6, g] Pb
+dEcc        [0.01, 0.01, g, min0.0, max1.0] eb
+dInc        [1.63, 0.945, g, min0.0] ib
+dLongA      [0.0, 360.0, u] lab
+dLongP      [0.0, 360.0, u] lpb
+rm dTidalQ
+rm dK2
+rm dMaxLockDiff
+rm saTidePerts
+saOutputOrder Time -TotEn -TotAngMom LongP SemimajorAxis Eccentricity Inc LongA
+
+sBodyFile   c.in
+saModules   distorb
+dMass       [-7.1, 0.7, g] mc
+dRadius     [-2.438, 0.096, g] Rc
+dOrbPeriod  [-4.9899093, 7.3e-6, g] Pc
+dEcc        [0.01, 0.01, g, min0.0, max1.0] ec
+dInc        [0.22, 0.13, g, min0.0] ic
+dLongA      [0.0, 360.0, u] lac
+dLongP      [0.0, 360.0, u] lpc
+rm dTidalQ
+rm dK2
+rm dMaxLockDiff
+rm saTidePerts
+saOutputOrder Time LongP SemimajorAxis Eccentricity Inc LongA
+
+sBodyFile   d.in
+saModules   distorb
+dMass       [-0.9, 0.45, g] md
+dRadius     [-1.032, 0.0435, g] Rd
+dOrbPeriod  [-2.753436, 1.3e-5, g] Pd
+dEcc        [0.01, 0.01, g, min0.0, max1.0] ed
+dInc        [0.66, 0.945, g, min0.0] id
+dLongA      [0.0, 360.0, u] lad
+dLongP      [0.0, 360.0, u] lpd
+rm dTidalQ
+rm dK2
+rm dMaxLockDiff
+rm saTidePerts
+saOutputOrder Time LongP SemimajorAxis Eccentricity Inc LongA
+
+sPrimaryFile   vpl.in
+dStopTime      1e5
+dOutputTime    1e2
+dEta           0.01
