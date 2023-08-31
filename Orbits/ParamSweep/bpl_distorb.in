@@ -1,6 +1,6 @@
-sDestFolder ???_distorb
-sArchiveFile ???_distorb.bpa
-sOutputFile ???_distorb.bpf
+sDestFolder vowellnoah_distorb
+sArchiveFile vowellnoah_distorb.bpa
+sOutputFile vowellnoah_distorb.bpf
 
 saBodyFiles   b.in c.in d.in
 sPrimaryFile   vpl.in

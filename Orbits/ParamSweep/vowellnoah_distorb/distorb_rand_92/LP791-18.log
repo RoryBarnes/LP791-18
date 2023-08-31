@@ -1,0 +1,375 @@
+-------- Log file LP791-18.log -------
+
+Executable: /Users/noahvowell/opt/anaconda3/envs/exo/bin/vplanet
+Version: Unknown
+System Name: LP791-18
+Primary Input File: vpl.in
+Body File #1: star.in
+Body File #2: b.in
+Body File #3: c.in
+Body File #4: d.in
+Allow files to be overwitten: Yes
+Mass Units: Grams
+Length Units: Meters
+Time Units: Seconds
+Angle Units: Radians
+
+------- FORMATTING -----
+Verbosity Level: 5
+Crossover Decade for Scientific Notation: 4
+Number of Digits After Decimal: 6
+Integration Method: Runge-Kutta4
+Direction: Forward
+Time Step: 3.155760e+07
+Stop Time: 3.155760e+12
+Output Interval: 3.155760e+09
+Use Variable Timestep: Yes
+dEta: 0.010000
+Minimum Value of ecc and obl: 1.000000e-10
+
+
+---- INITIAL SYSTEM PROPERTIES ----
+(Age) System Age [sec]: 3.155760e+13 
+(Time) Simulation Time [sec]: 0.000000 
+(TotAngMom) Total Angular Momentum [kg*m^2/sec]: 1.511815e+41 
+(TotEnergy) Total System Energy [kg*m^2/sec^2]: -2.516685e+40 
+(PotEnergy) Body's non-orbital Potential Energy [kg*m^2/sec^2]: -2.517645e+40 
+(KinEnergy) Body's non-orbital Kinetic Energy [kg*m^2/sec^2]: 9.785821e+36 
+(DeltaTime) Average Timestep Over Last Output Interval [sec]: 0.000000 
+
+----- BODY: star ----
+Active Modules: 
+Module Bit Sum: 1
+Color: 000000
+(Mass) Mass [kg]: 2.827076e+29 
+(Radius) Radius [m]: 1.271265e+08 
+(RadGyra) Radius of Gyration/Moment of Inertia Constant []: 0.450000 
+(BodyType) Type of Body (0 == planet) []: 0.000000 
+(Density) Average Density [kg/m^3]: 3.285036e+04 
+(HZLimitDryRunaway) Semi-major axis of Dry Runaway HZ Limit [m]: -1.000000 
+(HZLimRecVenus) Recent Venus HZ Limit []: -1.000000 
+(HZLimRunaway) Runaway Greenhouse HZ Limit []: -1.000000 
+(HZLimMoistGreenhouse) Moist Greenhouse HZ Limit []: -1.000000 
+(HZLimMaxGreenhouse) Maximum Greenhouse HZ Limit []: -1.000000 
+(HZLimEarlyMars) Early Mars HZ Limit []: -1.000000 
+(Instellation) Orbit-averaged INcident STELLar radiATION [kg*m^2/sec^2/(m^2*sec)]: -1.000000 
+Output Order:
+Grid Output Order:
+
+----- BODY: b ----
+Active Modules: DistOrb
+Module Bit Sum: 17
+Color: 000000
+(Mass) Mass [kg]: 1.016383e+25 
+(Radius) Radius [m]: 7.746869e+06 
+(RadGyra) Radius of Gyration/Moment of Inertia Constant []: 0.400000 
+(RotKinEnergy) Body's Rotational Energy [kg*m^2/sec^2]: 2.580666e+29 
+(RotVel) Rotational Velocity [m/sec]: 563.368179 
+(BodyType) Type of Body (0 == planet) []: 0.000000 
+(Density) Average Density [kg/m^3]: 5219.033293 
+(HEcc) Poincare's h (=e*sin(varpi) []: -0.000429 
+(HZLimitDryRunaway) Semi-major axis of Dry Runaway HZ Limit [m]: -1.000000 
+(HZLimRecVenus) Recent Venus HZ Limit []: -1.000000 
+(HZLimRunaway) Runaway Greenhouse HZ Limit []: -1.000000 
+(HZLimMoistGreenhouse) Moist Greenhouse HZ Limit []: -1.000000 
+(HZLimMaxGreenhouse) Maximum Greenhouse HZ Limit []: -1.000000 
+(HZLimEarlyMars) Early Mars HZ Limit []: -1.000000 
+(Instellation) Orbit-averaged INcident STELLar radiATION [kg*m^2/sec^2/(m^2*sec)]: -1.000000 
+(KEcc) Poincare's k (=e*cos(varpi) []: 0.001791 
+(Eccentricity) Orbital Eccentricity []: 0.001842 
+(OrbEnergy) Body's Total Orbital Energy [kg*m^2/sec^2]: -6.502613e+34 
+(MeanMotion) Orbital Mean Motion [/sec]: 7.671086e-05 
+(OrbPeriod) Orbital Period [sec]: 8.190738e+04 
+(SemiMajorAxis) Semi-major Axis [m]: 1.474624e+09 
+(OrbAngMom) Orbital Angular Momentum [kg*m^2/sec]: 1.695354e+39 
+(ArgP) Body's argument of pericenter [rad]: 1.783242 
+(Inc) Body's Inclination [rad]: 0.029291 
+(LongA) Body's Longitude of ascending node [rad]: 4.265032 
+(MeanLongitude) Orbital Mean Longitude [rad]: -0.234911 
+(LongP) Body's Longitude of pericenter [rad]: 6.048275 
+(TotOrbEnergy) System's Total Orbital Energy [kg*m^2/sec^2]: -1.843468e+35 
+(OrbPotEnergy) Body's Orbital Potential Energy [kg*m^2/sec^2]: -1.300523e+35 
+----- DISTORB PARAMETERS (b)------
+(Sinc) Body's sin(Inc/2) in DistOrb []: 0.014645 
+(Pinc) Body's Poincare p in DistOrb []: -0.013204 
+(Qinc) Body's Poincare q in DistOrb []: -0.006335 
+(DIncDtDistOrb) Body's inclination derivative in DistOrb [rad/sec]: -1.439733e-11 
+(DSincDtDistOrb) Body's sin(Inc/2) derivative in DistOrb [/sec]: -7.197891e-12 
+(DLongADtDistOrb) Body's longitude of ascending node derivative in DistOrb [rad/sec]: -7.760362e-10 
+(DLongPDtDistOrb) Body's longitude of pericenter derivative in DistOrb [rad/sec]: 5.792741e-10 
+(DHeccDtDistOrb) Body's Poincare h derivative in DistOrb [/sec]: 3.794261e-13 
+(DKeccDtDistOrb) Body's Poincare k in DistOrb [/sec]: 2.998475e-12 
+(DPincDtDistOrb) Body's Poincare p in DistOrb [/sec]: 1.140584e-11 
+(DQincDtDistOrb) Body's Poincare q in DistOrb [/sec]: -7.132817e-12 
+Output Order: Time[year] TotEnergy[ergs] TotAngMom[kg*m^2/s] LongP[deg] SemiMajorAxis[au] Eccentricity[] Inc[deg] LongA[deg]
+Grid Output Order:
+
+----- BODY: c ----
+Active Modules: DistOrb
+Module Bit Sum: 17
+Color: 000000
+(Mass) Mass [kg]: 4.528898e+25 
+(Radius) Radius [m]: 1.529033e+07 
+(RadGyra) Radius of Gyration/Moment of Inertia Constant []: 0.400000 
+(RotKinEnergy) Body's Rotational Energy [kg*m^2/sec^2]: 4.479696e+30 
+(RotVel) Rotational Velocity [m/sec]: 1111.944278 
+(BodyType) Type of Body (0 == planet) []: 0.000000 
+(Density) Average Density [kg/m^3]: 3024.497609 
+(HEcc) Poincare's h (=e*sin(varpi) []: 0.023219 
+(HZLimitDryRunaway) Semi-major axis of Dry Runaway HZ Limit [m]: -1.000000 
+(HZLimRecVenus) Recent Venus HZ Limit []: -1.000000 
+(HZLimRunaway) Runaway Greenhouse HZ Limit []: -1.000000 
+(HZLimMoistGreenhouse) Moist Greenhouse HZ Limit []: -1.000000 
+(HZLimMaxGreenhouse) Maximum Greenhouse HZ Limit []: -1.000000 
+(HZLimEarlyMars) Early Mars HZ Limit []: -1.000000 
+(Instellation) Orbit-averaged INcident STELLar radiATION [kg*m^2/sec^2/(m^2*sec)]: -1.000000 
+(KEcc) Poincare's k (=e*cos(varpi) []: -0.004028 
+(Eccentricity) Orbital Eccentricity []: 0.023566 
+(OrbEnergy) Body's Total Orbital Energy [kg*m^2/sec^2]: -9.575235e+34 
+(MeanMotion) Orbital Mean Motion [/sec]: 1.457381e-05 
+(OrbPeriod) Orbital Period [sec]: 4.311284e+05 
+(SemiMajorAxis) Semi-major Axis [m]: 4.462262e+09 
+(OrbAngMom) Orbital Angular Momentum [kg*m^2/sec]: 1.313668e+40 
+(ArgP) Body's argument of pericenter [rad]: 4.437206 
+(Inc) Body's Inclination [rad]: 0.004350 
+(LongA) Body's Longitude of ascending node [rad]: 3.588561 
+(MeanLongitude) Orbital Mean Longitude [rad]: 1.742582 
+(LongP) Body's Longitude of pericenter [rad]: 1.742582 
+(TotOrbEnergy) System's Total Orbital Energy [kg*m^2/sec^2]: -1.843468e+35 
+(OrbPotEnergy) Body's Orbital Potential Energy [kg*m^2/sec^2]: -1.915047e+35 
+----- DISTORB PARAMETERS (c)------
+(Sinc) Body's sin(Inc/2) in DistOrb []: 0.002175 
+(Pinc) Body's Poincare p in DistOrb []: -0.000940 
+(Qinc) Body's Poincare q in DistOrb []: -0.001961 
+(DIncDtDistOrb) Body's inclination derivative in DistOrb [rad/sec]: -1.460832e-11 
+(DSincDtDistOrb) Body's sin(Inc/2) derivative in DistOrb [/sec]: -7.304143e-12 
+(DLongADtDistOrb) Body's longitude of ascending node derivative in DistOrb [rad/sec]: -3.999015e-09 
+(DLongPDtDistOrb) Body's longitude of pericenter derivative in DistOrb [rad/sec]: 5.623709e-10 
+(DHeccDtDistOrb) Body's Poincare h derivative in DistOrb [/sec]: -4.758452e-12 
+(DKeccDtDistOrb) Body's Poincare k in DistOrb [/sec]: -1.262539e-11 
+(DPincDtDistOrb) Body's Poincare p in DistOrb [/sec]: 1.099968e-11 
+(DQincDtDistOrb) Body's Poincare q in DistOrb [/sec]: 2.827475e-12 
+Output Order: Time[year] LongP[deg] SemiMajorAxis[au] Eccentricity[] Inc[deg] LongA[deg]
+Grid Output Order:
+
+----- BODY: d ----
+Active Modules: DistOrb
+Module Bit Sum: 17
+Color: 000000
+(Mass) Mass [kg]: 7.499050e+24 
+(Radius) Radius [m]: 6.521727e+06 
+(RadGyra) Radius of Gyration/Moment of Inertia Constant []: 0.400000 
+(RotKinEnergy) Body's Rotational Energy [kg*m^2/sec^2]: 1.349440e+29 
+(RotVel) Rotational Velocity [m/sec]: 474.273345 
+(BodyType) Type of Body (0 == planet) []: 0.000000 
+(Density) Average Density [kg/m^3]: 6454.013641 
+(HEcc) Poincare's h (=e*sin(varpi) []: -0.006972 
+(HZLimitDryRunaway) Semi-major axis of Dry Runaway HZ Limit [m]: -1.000000 
+(HZLimRecVenus) Recent Venus HZ Limit []: -1.000000 
+(HZLimRunaway) Runaway Greenhouse HZ Limit []: -1.000000 
+(HZLimMoistGreenhouse) Moist Greenhouse HZ Limit []: -1.000000 
+(HZLimMaxGreenhouse) Maximum Greenhouse HZ Limit []: -1.000000 
+(HZLimEarlyMars) Early Mars HZ Limit []: -1.000000 
+(Instellation) Orbit-averaged INcident STELLar radiATION [kg*m^2/sec^2/(m^2*sec)]: -1.000000 
+(KEcc) Poincare's k (=e*cos(varpi) []: 0.008868 
+(Eccentricity) Orbital Eccentricity []: 0.011281 
+(OrbEnergy) Body's Total Orbital Energy [kg*m^2/sec^2]: -2.356830e+34 
+(MeanMotion) Orbital Mean Motion [/sec]: 2.641142e-05 
+(OrbPeriod) Orbital Period [sec]: 2.378965e+05 
+(SemiMajorAxis) Semi-major Axis [m]: 3.001857e+09 
+(OrbAngMom) Orbital Angular Momentum [kg*m^2/sec]: 1.784591e+39 
+(ArgP) Body's argument of pericenter [rad]: 5.862463 
+(Inc) Body's Inclination [rad]: 0.052442 
+(LongA) Body's Longitude of ascending node [rad]: 6.037636 
+(MeanLongitude) Orbital Mean Longitude [rad]: -0.666272 
+(LongP) Body's Longitude of pericenter [rad]: 5.616913 
+(TotOrbEnergy) System's Total Orbital Energy [kg*m^2/sec^2]: -1.843468e+35 
+(OrbPotEnergy) Body's Orbital Potential Energy [kg*m^2/sec^2]: -4.713660e+34 
+----- DISTORB PARAMETERS (d)------
+(Sinc) Body's sin(Inc/2) in DistOrb []: 0.026218 
+(Pinc) Body's Poincare p in DistOrb []: -0.006373 
+(Qinc) Body's Poincare q in DistOrb []: 0.025431 
+(DIncDtDistOrb) Body's inclination derivative in DistOrb [rad/sec]: 1.744656e-11 
+(DSincDtDistOrb) Body's sin(Inc/2) derivative in DistOrb [/sec]: 8.720283e-12 
+(DLongADtDistOrb) Body's longitude of ascending node derivative in DistOrb [rad/sec]: -3.528307e-09 
+(DLongPDtDistOrb) Body's longitude of pericenter derivative in DistOrb [rad/sec]: 6.805042e-09 
+(DHeccDtDistOrb) Body's Poincare h derivative in DistOrb [/sec]: 3.905855e-11 
+(DKeccDtDistOrb) Body's Poincare k in DistOrb [/sec]: 7.452805e-11 
+(DPincDtDistOrb) Body's Poincare p in DistOrb [/sec]: -9.184943e-11 
+(DQincDtDistOrb) Body's Poincare q in DistOrb [/sec]: -1.402815e-11 
+Output Order: Time[year] LongP[deg] SemiMajorAxis[au] Eccentricity[] Inc[deg] LongA[deg]
+Grid Output Order:
+
+
+
+---- FINAL SYSTEM PROPERTIES ----
+(Age) System Age [sec]: 3.471336e+13 
+(Time) Simulation Time [sec]: 3.155760e+12 
+(TotAngMom) Total Angular Momentum [kg*m^2/sec]: 1.511815e+41 
+(TotEnergy) Total System Energy [kg*m^2/sec^2]: -2.516685e+40 
+(PotEnergy) Body's non-orbital Potential Energy [kg*m^2/sec^2]: -2.517645e+40 
+(KinEnergy) Body's non-orbital Kinetic Energy [kg*m^2/sec^2]: 9.785821e+36 
+(DeltaTime) Average Timestep Over Last Output Interval [sec]: 3107.304691 
+
+----- BODY: star ----
+Active Modules: 
+Module Bit Sum: 1
+Color: 000000
+(Mass) Mass [kg]: 2.827076e+29 
+(Radius) Radius [m]: 1.271265e+08 
+(RadGyra) Radius of Gyration/Moment of Inertia Constant []: 0.450000 
+(BodyType) Type of Body (0 == planet) []: 0.000000 
+(Density) Average Density [kg/m^3]: 3.285036e+04 
+(HZLimitDryRunaway) Semi-major axis of Dry Runaway HZ Limit [m]: -1.000000 
+(HZLimRecVenus) Recent Venus HZ Limit []: -1.000000 
+(HZLimRunaway) Runaway Greenhouse HZ Limit []: -1.000000 
+(HZLimMoistGreenhouse) Moist Greenhouse HZ Limit []: -1.000000 
+(HZLimMaxGreenhouse) Maximum Greenhouse HZ Limit []: -1.000000 
+(HZLimEarlyMars) Early Mars HZ Limit []: -1.000000 
+(Instellation) Orbit-averaged INcident STELLar radiATION [kg*m^2/sec^2/(m^2*sec)]: -1.000000 
+Output Order:
+Grid Output Order:
+
+----- BODY: b ----
+Active Modules: DistOrb
+Module Bit Sum: 17
+Color: 000000
+(Mass) Mass [kg]: 1.016383e+25 
+(Radius) Radius [m]: 7.746869e+06 
+(RadGyra) Radius of Gyration/Moment of Inertia Constant []: 0.400000 
+(RotKinEnergy) Body's Rotational Energy [kg*m^2/sec^2]: 2.580666e+29 
+(RotVel) Rotational Velocity [m/sec]: 563.368179 
+(BodyType) Type of Body (0 == planet) []: 0.000000 
+(Density) Average Density [kg/m^3]: 5219.033293 
+(HEcc) Poincare's h (=e*sin(varpi) []: -0.004892 
+(HZLimitDryRunaway) Semi-major axis of Dry Runaway HZ Limit [m]: -1.000000 
+(HZLimRecVenus) Recent Venus HZ Limit []: -1.000000 
+(HZLimRunaway) Runaway Greenhouse HZ Limit []: -1.000000 
+(HZLimMoistGreenhouse) Moist Greenhouse HZ Limit []: -1.000000 
+(HZLimMaxGreenhouse) Maximum Greenhouse HZ Limit []: -1.000000 
+(HZLimEarlyMars) Early Mars HZ Limit []: -1.000000 
+(Instellation) Orbit-averaged INcident STELLar radiATION [kg*m^2/sec^2/(m^2*sec)]: -1.000000 
+(KEcc) Poincare's k (=e*cos(varpi) []: -0.003850 
+(Eccentricity) Orbital Eccentricity []: 0.006226 
+(OrbEnergy) Body's Total Orbital Energy [kg*m^2/sec^2]: -6.502613e+34 
+(MeanMotion) Orbital Mean Motion [/sec]: 7.671086e-05 
+(OrbPeriod) Orbital Period [sec]: 8.190738e+04 
+(SemiMajorAxis) Semi-major Axis [m]: 1.474624e+09 
+(OrbAngMom) Orbital Angular Momentum [kg*m^2/sec]: 1.695324e+39 
+(ArgP) Body's argument of pericenter [rad]: 0.348215 
+(Inc) Body's Inclination [rad]: 0.027471 
+(LongA) Body's Longitude of ascending node [rad]: 3.697343 
+(MeanLongitude) Orbital Mean Longitude [rad]: -2.237627 
+(LongP) Body's Longitude of pericenter [rad]: 4.045558 
+(TotOrbEnergy) System's Total Orbital Energy [kg*m^2/sec^2]: -1.843468e+35 
+(OrbPotEnergy) Body's Orbital Potential Energy [kg*m^2/sec^2]: -1.300523e+35 
+----- DISTORB PARAMETERS (b)------
+(Sinc) Body's sin(Inc/2) in DistOrb []: 0.013735 
+(Pinc) Body's Poincare p in DistOrb []: -0.007246 
+(Qinc) Body's Poincare q in DistOrb []: -0.011668 
+(DIncDtDistOrb) Body's inclination derivative in DistOrb [rad/sec]: 3.719576e-12 
+(DSincDtDistOrb) Body's sin(Inc/2) derivative in DistOrb [/sec]: 1.859612e-12 
+(DLongADtDistOrb) Body's longitude of ascending node derivative in DistOrb [rad/sec]: -1.063673e-09 
+(DLongPDtDistOrb) Body's longitude of pericenter derivative in DistOrb [rad/sec]: 5.887592e-10 
+(DHeccDtDistOrb) Body's Poincare h derivative in DistOrb [/sec]: -4.477908e-13 
+(DKeccDtDistOrb) Body's Poincare k in DistOrb [/sec]: 4.312086e-12 
+(DPincDtDistOrb) Body's Poincare p in DistOrb [/sec]: 1.142973e-11 
+(DQincDtDistOrb) Body's Poincare q in DistOrb [/sec]: -9.287438e-12 
+Output Order: Time[year] TotEnergy[ergs] TotAngMom[kg*m^2/s] LongP[deg] SemiMajorAxis[au] Eccentricity[] Inc[deg] LongA[deg]
+Grid Output Order:
+
+----- BODY: c ----
+Active Modules: DistOrb
+Module Bit Sum: 17
+Color: 000000
+(Mass) Mass [kg]: 4.528898e+25 
+(Radius) Radius [m]: 1.529033e+07 
+(RadGyra) Radius of Gyration/Moment of Inertia Constant []: 0.400000 
+(RotKinEnergy) Body's Rotational Energy [kg*m^2/sec^2]: 4.479696e+30 
+(RotVel) Rotational Velocity [m/sec]: 1111.944278 
+(BodyType) Type of Body (0 == planet) []: 0.000000 
+(Density) Average Density [kg/m^3]: 3024.497609 
+(HEcc) Poincare's h (=e*sin(varpi) []: 0.013110 
+(HZLimitDryRunaway) Semi-major axis of Dry Runaway HZ Limit [m]: -1.000000 
+(HZLimRecVenus) Recent Venus HZ Limit []: -1.000000 
+(HZLimRunaway) Runaway Greenhouse HZ Limit []: -1.000000 
+(HZLimMoistGreenhouse) Moist Greenhouse HZ Limit []: -1.000000 
+(HZLimMaxGreenhouse) Maximum Greenhouse HZ Limit []: -1.000000 
+(HZLimEarlyMars) Early Mars HZ Limit []: -1.000000 
+(Instellation) Orbit-averaged INcident STELLar radiATION [kg*m^2/sec^2/(m^2*sec)]: -1.000000 
+(KEcc) Poincare's k (=e*cos(varpi) []: -0.019582 
+(Eccentricity) Orbital Eccentricity []: 0.023565 
+(OrbEnergy) Body's Total Orbital Energy [kg*m^2/sec^2]: -9.575235e+34 
+(MeanMotion) Orbital Mean Motion [/sec]: 1.457381e-05 
+(OrbPeriod) Orbital Period [sec]: 4.311284e+05 
+(SemiMajorAxis) Semi-major Axis [m]: 4.462262e+09 
+(OrbAngMom) Orbital Angular Momentum [kg*m^2/sec]: 1.313668e+40 
+(ArgP) Body's argument of pericenter [rad]: 3.945112 
+(Inc) Body's Inclination [rad]: 0.011036 
+(LongA) Body's Longitude of ascending node [rad]: 4.889711 
+(MeanLongitude) Orbital Mean Longitude [rad]: 2.551638 
+(LongP) Body's Longitude of pericenter [rad]: 2.551638 
+(TotOrbEnergy) System's Total Orbital Energy [kg*m^2/sec^2]: -1.843468e+35 
+(OrbPotEnergy) Body's Orbital Potential Energy [kg*m^2/sec^2]: -1.915047e+35 
+----- DISTORB PARAMETERS (c)------
+(Sinc) Body's sin(Inc/2) in DistOrb []: 0.005518 
+(Pinc) Body's Poincare p in DistOrb []: -0.005432 
+(Qinc) Body's Poincare q in DistOrb []: 0.000973 
+(DIncDtDistOrb) Body's inclination derivative in DistOrb [rad/sec]: -8.953394e-12 
+(DSincDtDistOrb) Body's sin(Inc/2) derivative in DistOrb [/sec]: -4.476629e-12 
+(DLongADtDistOrb) Body's longitude of ascending node derivative in DistOrb [rad/sec]: -1.836502e-09 
+(DLongPDtDistOrb) Body's longitude of pericenter derivative in DistOrb [rad/sec]: 5.708916e-10 
+(DHeccDtDistOrb) Body's Poincare h derivative in DistOrb [/sec]: -1.044127e-11 
+(DKeccDtDistOrb) Body's Poincare k in DistOrb [/sec]: -8.586087e-12 
+(DPincDtDistOrb) Body's Poincare p in DistOrb [/sec]: 2.618843e-12 
+(DQincDtDistOrb) Body's Poincare q in DistOrb [/sec]: -1.076482e-11 
+Output Order: Time[year] LongP[deg] SemiMajorAxis[au] Eccentricity[] Inc[deg] LongA[deg]
+Grid Output Order:
+
+----- BODY: d ----
+Active Modules: DistOrb
+Module Bit Sum: 17
+Color: 000000
+(Mass) Mass [kg]: 7.499050e+24 
+(Radius) Radius [m]: 6.521727e+06 
+(RadGyra) Radius of Gyration/Moment of Inertia Constant []: 0.400000 
+(RotKinEnergy) Body's Rotational Energy [kg*m^2/sec^2]: 1.349440e+29 
+(RotVel) Rotational Velocity [m/sec]: 474.273345 
+(BodyType) Type of Body (0 == planet) []: 0.000000 
+(Density) Average Density [kg/m^3]: 6454.013641 
+(HEcc) Poincare's h (=e*sin(varpi) []: -0.008007 
+(HZLimitDryRunaway) Semi-major axis of Dry Runaway HZ Limit [m]: -1.000000 
+(HZLimRecVenus) Recent Venus HZ Limit []: -1.000000 
+(HZLimRunaway) Runaway Greenhouse HZ Limit []: -1.000000 
+(HZLimMoistGreenhouse) Moist Greenhouse HZ Limit []: -1.000000 
+(HZLimMaxGreenhouse) Maximum Greenhouse HZ Limit []: -1.000000 
+(HZLimEarlyMars) Early Mars HZ Limit []: -1.000000 
+(Instellation) Orbit-averaged INcident STELLar radiATION [kg*m^2/sec^2/(m^2*sec)]: -1.000000 
+(KEcc) Poincare's k (=e*cos(varpi) []: 0.005711 
+(Eccentricity) Orbital Eccentricity []: 0.009836 
+(OrbEnergy) Body's Total Orbital Energy [kg*m^2/sec^2]: -2.356830e+34 
+(MeanMotion) Orbital Mean Motion [/sec]: 2.641142e-05 
+(OrbPeriod) Orbital Period [sec]: 2.378965e+05 
+(SemiMajorAxis) Semi-major Axis [m]: 3.001857e+09 
+(OrbAngMom) Orbital Angular Momentum [kg*m^2/sec]: 1.784619e+39 
+(ArgP) Body's argument of pericenter [rad]: 4.160910 
+(Inc) Body's Inclination [rad]: 0.045694 
+(LongA) Body's Longitude of ascending node [rad]: 1.171049 
+(MeanLongitude) Orbital Mean Longitude [rad]: -0.951227 
+(LongP) Body's Longitude of pericenter [rad]: 5.331959 
+(TotOrbEnergy) System's Total Orbital Energy [kg*m^2/sec^2]: -1.843468e+35 
+(OrbPotEnergy) Body's Orbital Potential Energy [kg*m^2/sec^2]: -4.713660e+34 
+----- DISTORB PARAMETERS (d)------
+(Sinc) Body's sin(Inc/2) in DistOrb []: 0.022845 
+(Pinc) Body's Poincare p in DistOrb []: 0.021044 
+(Qinc) Body's Poincare q in DistOrb []: 0.008891 
+(DIncDtDistOrb) Body's inclination derivative in DistOrb [rad/sec]: 1.303587e-11 
+(DSincDtDistOrb) Body's sin(Inc/2) derivative in DistOrb [/sec]: 6.516236e-12 
+(DLongADtDistOrb) Body's longitude of ascending node derivative in DistOrb [rad/sec]: -4.065708e-09 
+(DLongPDtDistOrb) Body's longitude of pericenter derivative in DistOrb [rad/sec]: 8.263588e-09 
+(DHeccDtDistOrb) Body's Poincare h derivative in DistOrb [/sec]: 6.223692e-11 
+(DKeccDtDistOrb) Body's Poincare k in DistOrb [/sec]: 5.544239e-11 
+(DPincDtDistOrb) Body's Poincare p in DistOrb [/sec]: -3.014556e-11 
+(DQincDtDistOrb) Body's Poincare q in DistOrb [/sec]: 8.809443e-11 
+Output Order: Time[year] LongP[deg] SemiMajorAxis[au] Eccentricity[] Inc[deg] LongA[deg]
+Grid Output Order:
