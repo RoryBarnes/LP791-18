@@ -11,8 +11,8 @@ import vplot as vpl
 
 import vplanet
 
-lastname_firstname = ??
-module = ?? # "distorb" or "eqtide"
+lastname_firstname = "MichaelSolontoi"
+module = "eqtide" # "distorb" or "eqtide"
 
 # Path hacks
 path = pathlib.Path(__file__).parents[0].absolute()

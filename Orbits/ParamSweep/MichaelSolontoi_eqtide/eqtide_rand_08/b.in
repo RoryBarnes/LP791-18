@@ -1,0 +1,32 @@
+#
+sName		b			# Body's name
+saModules   eqtide
+
+# Physical Properties
+dMass -1.7224801970122399
+dRadius -1.337656655596686
+dRotPeriod	-1.0  		# Rotation period, negative -> days
+dObliquity	0.0             # Obliquity (degrees)
+dRadGyra	0.4             # Radius of gyration (unitless)
+
+# Orbital Properties
+dEcc 0.1344559631026898
+#dSemi           0.0188          # Semi-major axis, negative -> AU
+dOrbPeriod -0.9516018462180236
+
+# Eqtide Properties
+dTidalQ 867.5309684454245
+dK2             0.3             # Love number of degree 2
+dMaxLockDiff    0.01            # Tidally lock when spin period is within 1% of orbital period
+saTidePerts     star            # Tidally interacting with star
+
+# DISTORB Parameters
+#dInc            1.63            # Orbital inclination (assume coplanar)
+#dLongA          0.0             # Longitude of the Ascending node (degrees)
+#dLongP          0.0             # Longitude of the Periapse (degrees)
+#sOrbitModel     rd4             # Use 4th Order disturbing function model
+
+#Output
+saOutputOrder Time -TotEn -TotAngMom -RotPer SemimajorAxis Eccentricity -SurfEnFluxTot
+
+dMinValue   1e-10
