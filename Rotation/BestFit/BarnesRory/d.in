@@ -1,35 +1,35 @@
 # LP 791 d Parameters
-sName		d												# Body's name
+sName		d					# Body's name
 saModules 	eqtide distorb distrot    # Modules
 
 # Physical Properties
-dMass			-0.9  	  # Mass, negative -> Earth masses
+dMass			-0.9  	  		# Mass, negative -> Earth masses
 dRadius			-1.032  		# Radius, negative -> Earth radii
 # >L another guess, see b
-dRotPeriod	-1.0  		# Rotation period, negative -> days
-dObliquity	23.5       # Obliquity (degrees)
-dRadGyra		0.4       # Radius of gyration (unitless)
+dRotPeriod		-1.0  			# Rotation period, negative -> days
+dObliquity		23.5       		# Obliquity (degrees)
+dRadGyra		0.4       		# Radius of gyration (unitless)
 
 # Orbital Properties
-dEcc        0		# Eccentricity
+dEcc        0					# Eccentricity
 # >L current set is flat/wet/pushed, next is 10/wet/pushed
-#dSemi       -0.0433         # Semi-major axis, negative -> AU
+#dSemi       -0.0433         	# Semi-major axis, negative -> AU
 dOrbPeriod	 -2.753436
 
 # Eqtide Properties
 dTidalQ     	12              # Tidal phase lag
 # >L Each orbital pattern needs to be run with TQ92 (dry) and TQ50(wet)
-dK2           0.3             # Love number of degree 2
-dMaxLockDiff  0.01            # Tidally lock when spin period is within 1% of orbital period
-saTidePerts   star          # Tidally interacting with star
+dK2           0.3             	# Love number of degree 2
+dMaxLockDiff  0.01            	# Tidally lock when spin period is within 1% of orbital period
+saTidePerts   star          	# Tidally interacting with star
 
 # DISTORB Parameters
-dInc          0.66             # Orbital inclination (degrees)
+dInc          0.66             	# Orbital inclination (degrees)
 dLongA        240.0             # Longitude of the Ascending node (degrees)
-dLongP        0             # Longitude of the Periapse (degrees)
+dLongP        0             	# Longitude of the Periapse (degrees)
 
 # DISTROT Parameters
-dPrecA					0
+dPrecA			0
 bCalcDynEllip   1
 
 bInvPlane 	1
