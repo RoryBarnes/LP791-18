@@ -1,0 +1,11 @@
+srcfolder .
+sDestFolder M5_7Test
+sTrialName  TOSweep_
+
+file LP791-18.in
+
+file   b.in
+
+dWaterMassAtm  [-1,-1000,l40] TO
+
+file vpl.in

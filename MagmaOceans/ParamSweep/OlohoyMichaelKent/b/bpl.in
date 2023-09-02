@@ -1,0 +1,8 @@
+DestFolder ParameterSweep
+sArchiveFile ParameterSweep.b.bpa
+sOutputFile Output.b.bpf
+
+saBodyFiles   b.in LP791-18.in 
+sPrimaryFile   vpl.in
+
+saKeyInclude b:Time:final b:-WaterMassMOAtm:final b:-PressWaterAtm:final
