@@ -1,8 +1,8 @@
 sDestFolder M5_7Test
 sArchiveFile M5_7Test.bpa
-sOutputFile Output.d.bpf
+sOutputFile Output-d.bpf
 
 saBodyFiles   LP791-18.in d.in 
 sPrimaryFile   vpl.in
 
-saKeyInclude b:Time:final b:-WaterMassMOAtm:final b:-PressWaterAtm:final
+saKeyInclude d:Time:forward d:WaterMassMOAtm:forward d:PressWaterAtm:forward
