@@ -1,8 +1,8 @@
 # Planet parameters
-sName		          LC17ELim	  # Body's name
+sName		          L12ELim	  # Body's name
 saModules 	          atmesc          # Modules used in this body
 
-# Physical Properties 
+# Physical Properties /Users/laura/Documents/GitHub/LP791-18/EnvelopeLoss/BestFit/l12elim.in
 dMass		          -2.02   	  # Mass, negative -> Earth masses
 
 # Orbital Properties
@@ -24,9 +24,8 @@ bUseEnergyLimited          1              # Is the flow energy-limited?
 bUseBondiLimited           0              # Is the flow Bondi-limited?
 bAtmEscAuto                0              # Should atmesc decide the escape regime?
 
-sPlanetRadiusModel        lehmer17        # Options are: lopez1, lehmer17, none, proxcen
-dThermTemp                564.3           # dThermTemp and dAtmGasConst are only allowed to lehmer17 radius model option
-dAtmGasConst              4157
+sPlanetRadiusModel        lopez12        # Options are: lopez1, lehmer17, none, proxcen
+
 
 #Output
-saOutputOrder Time Age -SurfWaterMass -EnvelopeMass -OxygenMass -PlanetRadius -HZLimRunaway -HZlimMaxGreenhouse
+saOutputOrder Time -SurfWaterMass -EnvelopeMass -OxygenMass -PlanetRadius -HZLimRunaway -HZlimMaxGreenhouse
