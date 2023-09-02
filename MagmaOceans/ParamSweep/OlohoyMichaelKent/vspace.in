@@ -1,0 +1,11 @@
+srcfolder .
+destfolder M5_7Test
+TrialName  TOSweep
+
+file vpl.in
+
+file LP8909.in
+
+file   c.in
+
+dWaterMassAtm  [-1,-1000,l40] TO
