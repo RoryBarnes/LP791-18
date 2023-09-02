@@ -1,5 +1,5 @@
-DestFolder ParameterSweep
-sArchiveFile ParameterSweep.b.bpa
+sDestFolder M5_7Test
+sArchiveFile M5_7Test.bpa
 sOutputFile Output.b.bpf
 
 saBodyFiles   b.in LP791-18.in 
