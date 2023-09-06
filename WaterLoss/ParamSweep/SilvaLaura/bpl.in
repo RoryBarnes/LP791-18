@@ -1,0 +1,8 @@
+sDestFolder WaterLossSilvaLaura
+sArchiveFile WaterLossSilvaLaura.bpa
+sOutputFile WaterLossSilvaLaura.bpf
+
+saBodyFiles   b.in d.in LP791.in
+sPrimaryFile   vpl.in
+
+saKeyInclude b:SurfWaterMass:initial b:SurfWaterMass:final b:OxygenMass:final d:SurfWaterMass:initial d:SurfWaterMass:final d:OxygenMass:final
