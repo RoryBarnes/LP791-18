@@ -1,0 +1,10 @@
+sDestFolder ParameterSweep
+sArchiveFile ParameterSweep.bpa
+sOutputFile ParameterSweep.bpf
+
+saBodyFiles   star.in b.in c.in d.in
+sPrimaryFile   vpl.in
+
+saKeyInclude b:Obliquity:initial b:Obliquity:final b:SurfEnFluxTotal:initial b:SurfEnFluxTotal:final $
+	     c:Obliquity:initial c:Obliquity:final c:SurfEnFluxTotal:initial c:SurfEnFluxTotal:final $
+	     d:Obliquity:initial d:Obliquity:final d:SurfEnFluxTotal:initial d:SurfEnFluxTotal:final 
