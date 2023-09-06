@@ -1,0 +1,29 @@
+sSrcFolder  .
+sDestFolder WaterLossSilvaLaura
+sTrialName test_
+sSampleMode random
+iNumTrials 5000
+iSeed 7323
+
+sBodyFile   LP791.in
+
+dMass [0.139, 0.005, g] masslp791
+dSatXUVFrac [9.3325430079e-4, 6.8855579656e-6, g] satxuvfrac
+dSatXUVTime [-3.14, 1.84, g] satxuvtimelp791 
+dXUVBeta [1.17, 0.27, g] betalp791
+
+sBodyFile   b.in
+
+dMass [-2.02, 0.36, g] massb
+dRadius [-1.212, 0.0585, g] radb
+dOrbPeriod [-0.9479981, 2.1e-6, g] orbperb
+dSurfWaterMass [-100, 0, u] waterb
+
+sBodyFile   d.in
+
+dMass [-0.9, 0.45, g] massd
+dRadius [-1.032, 0.0435, g] radd
+dOrbPeriod [-2.753436, 1.3e-5, g] orbperd
+dSurfWaterMass [-100, 0, u] waterd
+
+sPrimaryFile   vpl.in
