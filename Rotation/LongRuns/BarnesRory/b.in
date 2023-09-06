@@ -1,6 +1,6 @@
 # LP 791-18 b Parameters
 sName			b			# Body's name
-saModules 		eqtide distorb distrot        	# Modules
+saModules 		eqtide distorb         	# Modules
 
 # Physical Properties
 dMass			-2.02  	  	# Mass, negative -> Earth masses
@@ -31,9 +31,10 @@ dLongP        	0           # Longitude of the Periapse (degrees)
 sOrbitModel   	rd4         # Use 4th Order disturbing function model
 
 # DISTROT Parameters
-dPrecA			0
-bCalcDynEllip 	1
+#dPrecA			0
+#bCalcDynEllip 	1
 
 #Output
 saOutputOrder Time -RotPer LongP SemimajorAxis Eccentricity -SurfEnFluxTot $
-		Obli PrecA CassiniOne CassiniTwo PrecFNat DynEllip LongA Inc
+		Obli $ #PrecA CassiniOne CassiniTwo PrecFNat DynEllip 
+		LongA Inc

@@ -1,6 +1,6 @@
-# Primary input file for VPLANET
+# Primary input file for VPLanet
 sSystemName	LP791-18		# System Name
-iVerbose	0					# Verbosity level
+iVerbose	0				# Verbosity level
 bOverwrite	1				# Allow file overwrites?
 
 # All space after a # is ignored, as is white space
@@ -15,25 +15,25 @@ saBodyFiles	star.in b.in c.in d.in
 
 # Input/Output Units
 sUnitMass		solar		# Options: gram, kg, Earth, Neptune, Jupiter, solar
-sUnitLength	AU			# Options: cm, m, km, Earth, Jupiter, solar, AU
+sUnitLength	    AU			# Options: cm, m, km, Earth, Jupiter, solar, AU
 sUnitTime		YEARS		# Options: sec, day, year, Myr, Gyr
-sUnitAngle	d				# Options: deg, rad
-sUnitTemp   K
+sUnitAngle	    d			# Options: deg, rad
+sUnitTemp       K
 
 # Units specified in the primary input file are propagated into the bodies. Otherwise
 # specifiy units on a per body basis in the body files.
 # Most string arguments can be in any case and need only be unambiguous.
 
 # Input/Output
-bDoLog			1				# Write a log file?
-iDigits			6				# Maximum number of digits to right of decimal
+bDoLog			1			# Write a log file?
+iDigits			6			# Maximum number of digits to right of decimal
 dMinValue		1e-10		# Minimum value of eccentricity/obliquity
 
 # Option names must be exact in spelling and case.
 
 # Evolution Parameters
-bDoForward		1				# Perform a forward evolution?
-bVarDt				1				# Use variable timestepping?
-dEta					0.001		# Coefficient for variable timestepping
-dStopTime			1.0e4   # Stop time for evolution
-dOutputTime		1.0e2		# Output timesteps (assuming in body files)
+bDoForward		1			# Perform a forward evolution?
+bVarDt			1			# Use variable timestepping?
+dEta			0.001		# Coefficient for variable timestepping
+dStopTime		2.5e3       # Stop time for evolution (sUnitTime)
+dOutputTime		10  		# Output interval (sUnitTime)

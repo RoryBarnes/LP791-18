@@ -1,5 +1,5 @@
-# LP 791-18 b Parameters
-sName				b				# Body's name
+# LP791-18b Parameters
+sName		b			# Body's name
 saModules 	eqtide distorb distrot        	# Modules
 
 # Physical Properties
@@ -8,31 +8,31 @@ dRadius			-1.212 		# Radius, negative -> Earth radii
 # >L This is a guess from a source graph (Damasso 2018)
 dRotPeriod	-1.0  		# Rotation period, negative -> days
 # >L yet another straight up guess.
-dObliquity	23.5      # Obliquity (degrees)
+dObliquity	23.5	      # Obliquity (degrees)
 dRadGyra	0.4       # Radius of gyration (unitless)
 
 # Orbital Properties
-dEcc        0		# Eccentricity
+dEcc        0.0		# Eccentricity
 # >L current set is flat/wet/pushed, next is 10/wet/pushed
-#dSemi       -0.0252          # Semi-major axis, negative -> AU
-dOrbPeriod	 -0.9479981
+dOrbPeriod       -0.9479981          # Orbital period, negative -> days
 
 # Eqtide Properties
 dTidalQ     	12              # Tidal phase lag
+dTidalTau	-638		# negative -> seconds
 # >L Each orbital pattern needs to be run with TQ70(dry) and TQ12(wet)
 dK2           0.3             # Love number of degree 2
 dMaxLockDiff  0.01            # Tidally lock when spin period is within 1% of orbital period
-saTidePerts   star          # Tidally interacting with star
+saTidePerts   star    # Tidally interacting with star
 
 # DISTORB Parameters
 dInc          1.63             # Orbital inclination (assume coplanar)
-dLongA        0             # Longitude of the Ascending node (degrees)
-dLongP        0             # Longitude of the Periapse (degrees)
+dLongA        0.0             # Longitude of the Ascending node (degrees)
+dLongP        0.0             # Longitude of the Periapse (degrees)
 sOrbitModel   rd4             # Use 4th Order disturbing function model
 
 # DISTROT Parameters
-dPrecA			0
-bCalcDynEllip 	1
+dPrecA		0
+bCalcDynEllip 1
 
 #Output
 saOutputOrder Time -RotPer LongP SemimajorAxis Eccentricity -SurfEnFluxTot $

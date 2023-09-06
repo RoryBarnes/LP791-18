@@ -11,7 +11,7 @@ dObliquity		23.5       		# Obliquity (degrees)
 dRadGyra		0.4       	# Radius of gyration (unitless)
 
 # Orbital Properties
-dEcc        	0		# Eccentricity
+dEcc        	0.16		# Eccentricity
 # >L current set is flat/wet/pushed, next is 10/wet/pushed
 #dSemi       	-0.0433         # Semi-major axis, negative -> AU
 dOrbPeriod		-4.9899093
