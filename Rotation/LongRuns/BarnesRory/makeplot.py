@@ -15,7 +15,7 @@ from get_args import get_args
 
 # Run vplanet
 #out = vplanet.run(path / "vpl.in")
-out = vplanet.get_output(path / "vpl.in")
+out = vplanet.get_output(path)
 time = out.star.Time / 1e3
 
 fig = plt.figure(figsize=(6.5, 8))
