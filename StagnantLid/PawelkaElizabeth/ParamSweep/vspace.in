@@ -1,0 +1,18 @@
+sSrcFolder  .  # Just look at the same folder you are in for data
+sDestFolder SweepResults
+sTrialName test_ # What will we name all simulations?
+# V-Space can do random sampling, or sweeps of sampling
+sSampleMode random
+iSeed 658 # random sampling, but repeatable
+iNumTrials 10 # So 10 simulations
+
+sBodyFile   sun.in # What body files are we working with?
+
+sBodyFile   tidalearth.in
+
+dViscRef [6e5, 6e8, t] nu  # Log uniform distribution where we get large & small b/c far apart
+dTMan    [2500, 3500, u] tm 
+dEruptEff [0.01, 0.2, u] eps 
+dElecCondCore [5e5, 5e6, u] sig
+
+sPrimaryFile   vpl.in

@@ -1,0 +1,9 @@
+sDestFolder SweepResults
+sArchiveFile PawelkaElizabeth.bpa # Includes all files
+sOutputFile PawelkaElizabeth.bpf # Includes only those we care about
+
+saBodyFiles   tidalearth.in sun.in
+sPrimaryFile   vpl.in
+
+saKeyInclude tidalearth:dViscRef:option tidalearth:dTMan:option tidalearth:dEruptEff:option tidalearth:dElecCondCore:option tidalearth:MagMom:forward tidalearth:HflowMeltMan:forward
+
