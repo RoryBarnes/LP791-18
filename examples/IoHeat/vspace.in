@@ -1,0 +1,11 @@
+sSrcFolder  .
+sDestFolder data
+sTrialName  ioheat
+
+sPrimaryFile   vpl.in
+
+sBodyFile   jupiter.in
+
+sBodyFile   io.in
+dEcc  [1e-3,0.01,n30] e
+dObliquity [1e-3,1,l30] o
