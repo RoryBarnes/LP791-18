@@ -1,0 +1,9 @@
+sDestFolder SweepResults
+sArchiveFile JonesUla.bpa
+sOutputFile JonesUla.bpf
+
+saBodyFiles   tidalearth.in sun.in
+sPrimaryFile   vpl.in
+
+saKeyInclude tidalearth:dViscRef:option tidalearth:dTMan:option tidalearth:dEruptEff:option tidalearth:dElecCondCore:option tidalearth:MagMom:forward tidalearth:HflowMeltMan:forward
+
