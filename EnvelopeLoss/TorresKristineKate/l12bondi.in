@@ -1,0 +1,31 @@
+# Planet parameters
+sName		          L12Bondi	  # Body's name
+saModules 	          atmesc          # Modules used in this body
+
+# Physical Properties 
+dMass		          -0.9  	  # Mass, negative -> Earth masses
+
+# Orbital Properties
+dEcc                       0	          # Eccentricity
+dOrbPeriod                -2.753436      #dOrbPeriod = Orbital period, negative -> days || dSemi = Semi-major axis, negative -> AU
+
+# ATMESC Properties
+dXFrac                     1.0            # X-Ray/XUV absorption radius (fraction of planet radius)
+dSurfWaterMass            -1.0            # Initial surface water (Earth oceans)
+dEnvelopeMass             -0.01          # Initial envelope mass (Earth masses)
+bHaltSurfaceDesiccated     0              # Halt when dry?
+bHaltEnvelopeGone          0              # Halt when evaporated?
+dMinSurfWaterMass         -1.e-5          # Planet is desiccated when water content drops below this (Earth oceans)
+dMinEnvelopeMass          -1.e-5.         # Planet is desiccated when envelope drops below this (Earth masses)
+
+# Which atmospheric escape regime are being considered?
+bUseRRLimited              0              # Is the flow radiation-recombination-limited?
+bUseEnergyLimited          0              # Is the flow energy-limited?
+bUseBondiLimited           1              # Is the flow Bondi-limited?
+bAtmEscAuto                0              # Should atmesc decide the escape regime?
+
+sPlanetRadiusModel        lopez12        # Options are: lopez1, lehmer17, none, proxcen
+
+
+#Output
+saOutputOrder Time Age -SurfWaterMass -EnvelopeMass -OxygenMass -PlanetRadius -HZLimRunaway -HZlimMaxGreenhouse
