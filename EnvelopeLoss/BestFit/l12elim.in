@@ -1,0 +1,31 @@
+# Planet parameters
+sName		          L12ELim	  # Body's name
+saModules 	          atmesc          # Modules used in this body
+
+# Physical Properties /Users/laura/Documents/GitHub/LP791-18/EnvelopeLoss/BestFit/l12elim.in
+dMass		          -2.02   	  # Mass, negative -> Earth masses
+
+# Orbital Properties
+dEcc                       0	          # Eccentricity
+dOrbPeriod                -0.9479981      #dOrbPeriod = Orbital period, negative -> days || dSemi = Semi-major axis, negative -> AU
+
+# ATMESC Properties
+dXFrac                     1.0            # X-Ray/XUV absorption radius (fraction of planet radius)
+dSurfWaterMass            -1.0            # Initial surface water (Earth oceans)
+dEnvelopeMass             -0.1          # Initial envelope mass (Earth masses)
+bHaltSurfaceDesiccated     0              # Halt when dry?
+bHaltEnvelopeGone          0              # Halt when evaporated?
+dMinSurfWaterMass         -1.e-5          # Planet is desiccated when water content drops below this (Earth oceans)
+dMinEnvelopeMass          -1.e-5.         # Planet is desiccated when envelope drops below this (Earth masses)
+
+# Which atmospheric escape regime are being considered?
+bUseRRLimited              0              # Is the flow radiation-recombination-limited?
+bUseEnergyLimited          1              # Is the flow energy-limited?
+bUseBondiLimited           0              # Is the flow Bondi-limited?
+bAtmEscAuto                0              # Should atmesc decide the escape regime?
+
+sPlanetRadiusModel        lopez12        # Options are: lopez1, lehmer17, none, proxcen
+
+
+#Output
+saOutputOrder Time -SurfWaterMass -EnvelopeMass -OxygenMass -PlanetRadius -HZLimRunaway -HZlimMaxGreenhouse

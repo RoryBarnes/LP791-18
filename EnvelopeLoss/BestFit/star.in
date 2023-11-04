@@ -1,12 +1,15 @@
-sName        star       # Body's name
-saModules    stellar
+sName        star            # Body's name
+saModules    stellar         # Modules used in this body
 
 # Physical Parameters
-dMass        0.118      # Mass, negative -> Earth masses
+dMass         0.139          # Mass, negative -> Earth masses
+dAge          1e6            # Stellar age
 
 # STELLAR parameters
-sStellarModel proximacen     # Stellar evolutin model: `baraffe` or `none`
-dSatXUVFrac   1.e-3          # Saturation level of the XUV luminosity
+sStellarModel baraffe        # Stellar evolutin model: `baraffe` or `none`
+dSatXUVFrac   1.e-3.03       # Saturation level of the XUV luminosity
+dSatXUVTime   3.14e9         # tsat = saturation time [yr]
+dXUVBeta      1.17           # beta = exponential decay rate [dimensionless]
 dRadGyra      0.5
 
-saOutputOrder Time -Luminosity -LXUVTot
+saOutputOrder Time Age -Luminosity -LXUVTot -HZLimRunaway -HZlimMaxGreenhouse
